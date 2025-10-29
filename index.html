@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mammi - Apoio para Mães de Primeira Viagem</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="logo.jpg" alt="Mammi Logo" class="logo-img">
+                <h1>Mammi</h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link active">Início</a></li>
+                    <li><a href="#tutoriais" class="nav-link">Tutoriais</a></li>
+                    <li><a href="#vacinas" class="nav-link">Vacinas</a></li>
+                    <li><a href="#chat" class="nav-link">Chat</a></li>
+                    <li><a href="#apoio" class="nav-link">Apoio Psicológico</a></li>
+                    <li><a href="#farmacias" class="nav-link">Farmácias</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h2>Bem-vinda ao Mammi</h2>
+                    <p>O seu companheiro digital para a jornada da maternidade</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="showSection('tutoriais')">
+                            <i class="fas fa-play"></i> Começar Tutoriais
+                        </button>
+                        <button class="btn btn-secondary" onclick="showSection('chat')">
+                            <i class="fas fa-comments"></i> Conectar com Outras Mães
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="floating-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>Apoio Completo</h3>
+                        <p>Desde a gestação até os primeiros anos</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Access Cards -->
+            <div class="quick-access">
+                <div class="card" onclick="showSection('vacinas')">
+                    <i class="fas fa-syringe"></i>
+                    <h3>Calendário de Vacinas</h3>
+                    <p>Acompanhe o plano de vacinação do seu bebé</p>
+                </div>
+                <div class="card" onclick="showSection('tutoriais')">
+                    <i class="fas fa-baby"></i>
+                    <h3>Cuidados com o Bebé</h3>
+                    <p>Tutoriais práticos para os primeiros cuidados</p>
+                </div>
+                <div class="card" onclick="showSection('apoio')">
+                    <i class="fas fa-heart"></i>
+                    <h3>Apoio Psicológico</h3>
+                    <p>Suporte emocional durante esta jornada</p>
+                </div>
+                <div class="card" onclick="showSection('farmacias')">
+                    <i class="fas fa-pills"></i>
+                    <h3>Farmácias Próximas</h3>
+                    <p>Encontre produtos essenciais perto de si</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tutoriais Section -->
+        <section id="tutoriais" class="section">
+            <div class="container">
+                <h2 class="section-title">Tutoriais Práticos</h2>
+                <div class="tutorials-grid">
+                    <div class="tutorial-card" onclick="openTutorial('banho')">
+                        <div class="tutorial-icon">
+                            <i class="fas fa-shower"></i>
+                        </div>
+                        <h3>Como Dar Banho ao Bebé</h3>
+                        <p>Temperatura ideal da água e técnicas seguras</p>
+                        <div class="tutorial-duration">
+                            <i class="fas fa-clock"></i> 5 min
+                        </div>
+                    </div>
+                    
+                    <div class="tutorial-card" onclick="openTutorial('cordao')">
+                        <div class="tutorial-icon">
+                            <i class="fas fa-band-aid"></i>
+                        </div>
+                        <h3>Cuidados com o Cordão Umbilical</h3>
+                        <p>Como limpar e cuidar do cordão umbilical</p>
+                        <div class="tutorial-duration">
+                            <i class="fas fa-clock"></i> 3 min
+                        </div>
+                    </div>
+                    
+                    <div class="tutorial-card" onclick="openTutorial('leite')">
+                        <div class="tutorial-icon">
+                            <i class="fas fa-baby-bottle"></i>
+                        </div>
+                        <h3>Temperatura do Leite</h3>
+                        <p>Como preparar o leite na temperatura ideal</p>
+                        <div class="tutorial-duration">
+                            <i class="fas fa-clock"></i> 2 min
+                        </div>
+                    </div>
+                    
+                    <div class="tutorial-card" onclick="openTutorial('mala')">
+                        <div class="tutorial-icon">
+                            <i class="fas fa-suitcase"></i>
+                        </div>
+                        <h3>Mala da Maternidade</h3>
+                        <p>Lista completa do que levar para a maternidade</p>
+                        <div class="tutorial-duration">
+                            <i class="fas fa-clock"></i> 4 min
+                        </div>
+                    </div>
+                    
+                    <div class="tutorial-card" onclick="openTutorial('alimentacao')">
+                        <div class="tutorial-icon">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <h3>Introdução Alimentar (6+ meses)</h3>
+                        <p>Como introduzir sólidos na alimentação do bebé</p>
+                        <div class="tutorial-duration">
+                            <i class="fas fa-clock"></i> 6 min
+                        </div>
+                    </div>
+                    
+                    <div class="tutorial-card" onclick="openTutorial('sono')">
+                        <div class="tutorial-icon">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <h3>Sono do Bebé</h3>
+                        <p>Dicas para estabelecer uma rotina de sono saudável</p>
+                        <div class="tutorial-duration">
+                            <i class="fas fa-clock"></i> 5 min
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vacinas Section -->
+        <section id="vacinas" class="section">
+            <div class="container">
+                <h2 class="section-title">Calendário de Vacinas</h2>
+                <div class="vaccine-tracker">
+                    <div class="vaccine-info">
+                        <h3>Plano Nacional de Vacinação</h3>
+                        <p>Acompanhe as vacinas obrigatórias e facultativas do seu bebé</p>
+                    </div>
+                    
+                    <div class="vaccine-calendar">
+                        <div class="month-selector">
+                            <button onclick="changeMonth(-1)"><i class="fas fa-chevron-left"></i></button>
+                            <h3 id="current-month">Janeiro 2024</h3>
+                            <button onclick="changeMonth(1)"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        
+                        <div class="vaccine-list">
+                            <div class="vaccine-item completed">
+                                <div class="vaccine-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="vaccine-details">
+                                    <h4>BCG</h4>
+                                    <p>Até aos 30 dias de vida</p>
+                                    <span class="vaccine-status completed">Concluída</span>
+                                </div>
+                            </div>
+                            
+                            <div class="vaccine-item pending">
+                                <div class="vaccine-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="vaccine-details">
+                                    <h4>Hepatite B</h4>
+                                    <p>2, 4 e 6 meses</p>
+                                    <span class="vaccine-status pending">Pendente</span>
+                                </div>
+                            </div>
+                            
+                            <div class="vaccine-item upcoming">
+                                <div class="vaccine-icon">
+                                    <i class="fas fa-calendar"></i>
+                                </div>
+                                <div class="vaccine-details">
+                                    <h4>DTPa/Hib/IPV</h4>
+                                    <p>2, 4 e 6 meses</p>
+                                    <span class="vaccine-status upcoming">Próxima</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chat Section -->
+        <section id="chat" class="section">
+            <div class="container">
+                <h2 class="section-title">Chat entre Mães</h2>
+                <div class="chat-container">
+                    <div class="chat-sidebar">
+                        <div class="chat-header">
+                            <h3>Conversas</h3>
+                            <button class="btn btn-primary" onclick="createNewChat()">
+                                <i class="fas fa-plus"></i> Nova Conversa
+                            </button>
+                        </div>
+                        <div class="chat-list" id="chat-list">
+                            <div class="chat-item active">
+                                <div class="chat-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="chat-info">
+                                    <h4>Grupo Geral</h4>
+                                    <p>Última mensagem: Olá mães!</p>
+                                    <span class="chat-time">10:30</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-main">
+                        <div class="chat-messages" id="chat-messages">
+                            <div class="message received">
+                                <div class="message-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="message-content">
+                                    <p>Olá! Alguém tem dicas para o primeiro banho do bebé?</p>
+                                    <span class="message-time">10:30</span>
+                                </div>
+                            </div>
+                            
+                            <div class="message sent">
+                                <div class="message-content">
+                                    <p>Eu usei água a 37°C e foi perfeito! O bebé ficou muito calmo.</p>
+                                    <span class="message-time">10:32</span>
+                                </div>
+                                <div class="message-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-input">
+                            <input type="text" id="message-input" placeholder="Escreva a sua mensagem...">
+                            <button onclick="sendMessage()">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Apoio Psicológico Section -->
+        <section id="apoio" class="section">
+            <div class="container">
+                <h2 class="section-title">Apoio Psicológico</h2>
+                <div class="support-content">
+                    <div class="support-info">
+                        <h3>Está aqui para si</h3>
+                        <p>Sabemos que a maternidade pode ser desafiadora. O nosso serviço de apoio psicológico está disponível para ajudá-la a gerir a ansiedade e proporcionar um espaço seguro para partilhar sentimentos e dúvidas.</p>
+                        
+                        <div class="support-features">
+                            <div class="feature">
+                                <i class="fas fa-comments"></i>
+                                <h4>Chat com Psicólogos</h4>
+                                <p>Converse com profissionais qualificados</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-calendar-check"></i>
+                                <h4>Consultas Online</h4>
+                                <p>Agende consultas virtuais</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-users"></i>
+                                <h4>Grupos de Apoio</h4>
+                                <p>Conecte-se com outras mães</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="support-actions">
+                        <button class="btn btn-primary" onclick="requestSupport()">
+                            <i class="fas fa-phone"></i> Pedir Apoio
+                        </button>
+                        <button class="btn btn-secondary" onclick="scheduleConsultation()">
+                            <i class="fas fa-calendar"></i> Agendar Consulta
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Farmácias Section -->
+        <section id="farmacias" class="section">
+            <div class="container">
+                <h2 class="section-title">Farmácias Próximas</h2>
+                <div class="pharmacy-content">
+                    <div class="pharmacy-search">
+                        <div class="search-box">
+                            <input type="text" id="pharmacy-search" placeholder="Pesquisar farmácias...">
+                            <button onclick="searchPharmacies()">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        <button class="btn btn-primary" onclick="getCurrentLocation()">
+                            <i class="fas fa-location-arrow"></i> Usar Localização Atual
+                        </button>
+                    </div>
+                    
+                    <div class="pharmacy-list" id="pharmacy-list">
+                        <div class="pharmacy-item">
+                            <div class="pharmacy-info">
+                                <h4>Farmácia Central</h4>
+                                <p>Rua da Liberdade, 123</p>
+                                <p>Lisboa</p>
+                                <div class="pharmacy-distance">
+                                    <i class="fas fa-map-marker-alt"></i> 0.5 km
+                                </div>
+                            </div>
+                            <div class="pharmacy-actions">
+                                <button class="btn btn-small" onclick="callPharmacy('+351 21 123 4567')">
+                                    <i class="fas fa-phone"></i>
+                                </button>
+                                <button class="btn btn-small" onclick="getDirections('Farmácia Central')">
+                                    <i class="fas fa-directions"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Tutorial Modal -->
+    <div id="tutorial-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="tutorial-title">Tutorial</h3>
+                <button class="close-btn" onclick="closeTutorial()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="tutorial-content">
+                <!-- Tutorial content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Mammi</h4>
+                    <p>Apoio completo para mães de primeira viagem</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contactos</h4>
+                    <p>Email: info@mammi.pt</p>
+                    <p>Telefone: +351 21 123 4567</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mammi. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
