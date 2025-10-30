@@ -230,9 +230,23 @@ const tutorials = {
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing app...');
     initializeApp();
     setupEventListeners();
     loadChatMessages();
+    
+    // Test mobile menu button
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    console.log('Mobile button found:', mobileBtn);
+    if (mobileBtn) {
+        console.log('Adding click listener to mobile button');
+        mobileBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Mobile button clicked via event listener');
+            toggleMobileMenu();
+        });
+    }
 });
 
 function initializeApp() {
@@ -260,7 +274,17 @@ function setupEventListeners() {
     // Mobile menu toggle
     const mobileToggle = document.querySelector('.mobile-menu-toggle');
     if (mobileToggle) {
-        mobileToggle.addEventListener('click', toggleMobileMenu);
+        mobileToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+    }
+
+    // Mobile menu overlay
+    const mobileOverlay = document.getElementById('mobile-menu-overlay');
+    if (mobileOverlay) {
+        mobileOverlay.addEventListener('click', closeMobileMenu);
     }
 
     // Chat input
@@ -311,14 +335,51 @@ function showSection(sectionId) {
     closeMobileMenu();
 }
 
+function testMenu() {
+    const nav = document.querySelector('.nav');
+    if (nav) {
+        nav.style.left = '0px';
+        nav.style.background = 'red';
+        nav.style.zIndex = '10000';
+    }
+}
+
 function toggleMobileMenu() {
     const nav = document.querySelector('.nav');
+    const mobileToggle = document.getElementById('mobile-menu-btn');
+    const overlay = document.getElementById('mobile-menu-overlay');
+    
+    if (!nav) {
+        console.error('Nav element not found!');
+        return;
+    }
+    
+    // Toggle the active class
     nav.classList.toggle('active');
+    
+    // Toggle overlay
+    if (overlay) {
+        overlay.classList.toggle('active');
+    }
+    
+    // Change icon
+    if (mobileToggle) {
+        if (nav.classList.contains('active')) {
+            mobileToggle.innerHTML = '<i class="fas fa-times"></i>';
+        } else {
+            mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+    }
 }
 
 function closeMobileMenu() {
     const nav = document.querySelector('.nav');
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const overlay = document.getElementById('mobile-menu-overlay');
+    
     nav.classList.remove('active');
+    overlay.classList.remove('active');
+    mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
 }
 
 function openTutorial(tutorialId) {
@@ -576,6 +637,16 @@ document.addEventListener('click', (e) => {
     const modal = document.getElementById('tutorial-modal');
     if (e.target === modal) {
         closeTutorial();
+    }
+    
+    // Close mobile menu when clicking outside
+    const nav = document.querySelector('.nav');
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    
+    if (nav && nav.classList.contains('active') && 
+        !nav.contains(e.target) && 
+        !mobileToggle.contains(e.target)) {
+        closeMobileMenu();
     }
 });
 
