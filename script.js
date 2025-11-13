@@ -5,6 +5,115 @@ let currentYear = new Date().getFullYear();
 let chatMessages = [];
 let currentChat = 'general';
 
+// Product data extracted from filenames
+const farmamamaProducts = [
+    {
+        filename: '3660709-CUIDADOS-DO-CORPO-CREME-HIDRATANTE-PARA-MAMILOS-MEDELA-P-01.jpg',
+        name: 'Creme Hidratante para Mamilos',
+        category: 'Cuidados do Corpo',
+        brand: 'Medela',
+        description: 'Hidratação e proteção dos mamilos durante a amamentação'
+    },
+    {
+        filename: '4593451-LINGERIE-CINTA-POS-PARTO-REGULAVEL-MAMMY-CHICCO-P-01.jpg',
+        name: 'Cinta Pós-Parto Regulável',
+        category: 'Lingerie',
+        brand: 'Mammy Chicco',
+        description: 'Suporte abdominal pós-parto ajustável'
+    },
+    {
+        filename: '6065014-OUTROS-PENSOS-HIGIENICOS-POS-PARTO-WELLS-P-01.jpg',
+        name: 'Pensos Higiénicos Pós-Parto',
+        category: 'Pós-Parto',
+        brand: 'Wells',
+        description: 'Absorção e proteção pós-parto'
+    },
+    {
+        filename: '6148805-SUPLEMENTOS-VITADE-COM-VITAMINA-D-E-DHA-VITADE-P-01.jpg',
+        name: 'Vitade com Vitamina D e DHA',
+        category: 'Suplementos',
+        brand: 'Vitade',
+        description: 'Suplemento com vitamina D e DHA para gestação'
+    },
+    {
+        filename: '6396271-PRODUTOS-P-DENTICAO-DETERGENTE-PARA-BIBEROES-E-TETINAS-WELLS-P-01.jpg',
+        name: 'Detergente para Biberões e Tetinas',
+        category: 'Higiene',
+        brand: 'Wells',
+        description: 'Limpeza segura de biberões e tetinas'
+    },
+    {
+        filename: '7540629-OUTROS-FRASCO-LAVAGEM-POS-PARTO-LANSINOH-P-01.jpg',
+        name: 'Frasco de Lavagem Pós-Parto',
+        category: 'Pós-Parto',
+        brand: 'Lansinoh',
+        description: 'Higiene íntima pós-parto'
+    },
+    {
+        filename: '7576302-CUIDADOS-DO-CORPO-OLEO-ANTI-ESTRIAS-BIO-MUSTELA-MATERNIDADE-P-01.jpg',
+        name: 'Óleo Anti-Estrias Bio',
+        category: 'Cuidados do Corpo',
+        brand: 'Mustela Maternidade',
+        description: 'Prevenção e tratamento de estrias durante a gravidez'
+    },
+    {
+        filename: '7719986-SUPLEMENTOS-GESTACARE-GESTACAO-COM-ACIDO-FOLICO-E-OMEGA-3-GESTACARE-P-01.webp',
+        name: 'Gestacare Gestação com Ácido Fólico e Omega-3',
+        category: 'Suplementos',
+        brand: 'Gestacare',
+        description: 'Suplemento pré-natal com ácido fólico e omega-3'
+    },
+    {
+        filename: '7974285-LINGERIE-SOUTIEN-DE-AMAMENTACAO-BEGE-WELLS-P-01.jpg',
+        name: 'Soutien de Amamentação',
+        category: 'Lingerie',
+        brand: 'Wells',
+        description: 'Soutien confortável para amamentação'
+    },
+    {
+        filename: '8048337-OUTROS-FRASCO-LAVAGEM-POS-PARTO-MOTHER-WELLS-P-01 (1).webp',
+        name: 'Frasco de Lavagem Pós-Parto Mother',
+        category: 'Pós-Parto',
+        brand: 'Wells',
+        description: 'Higiene íntima pós-parto'
+    },
+    {
+        filename: '8111959-HIGIENE-ORGANIZADOR-MUDA-FRALDA-BABY-WELLS-P-01.jpg',
+        name: 'Organizador Muda Fralda',
+        category: 'Higiene',
+        brand: 'Wells',
+        description: 'Organizador prático para mudança de fraldas'
+    },
+    {
+        filename: '8121118-AMAMENTACAO-EXTRATOR-DE-LEITE-DUPLO-SWING-MAXI-HANDS-FREE-MEDELA-P-01.jpg',
+        name: 'Extrator de Leite Duplo Swing Maxi',
+        category: 'Amamentação',
+        brand: 'Medela',
+        description: 'Extrator de leite duplo hands-free'
+    },
+    {
+        filename: '8153732-AMAMENTACAO-ALMOFADA-MAMARIA-QUENTE-E-FRIA-WELLS-P-01.jpg',
+        name: 'Almofada Mamária Quente e Fria',
+        category: 'Amamentação',
+        brand: 'Wells',
+        description: 'Alívio para seios durante a amamentação'
+    },
+    {
+        filename: '8153733-OUTROS-ALMOFADA-QUENTE-E-FRIA-POS-PARTO-WELLS-P-02.jpg',
+        name: 'Almofada Quente e Fria Pós-Parto',
+        category: 'Pós-Parto',
+        brand: 'Wells',
+        description: 'Alívio e conforto pós-parto'
+    },
+    {
+        filename: '8289280-CUIDADOS-DO-CORPO-PENSO-PARA-CICATRIZ-CESARIANA-BABY-WELLS-P-01.jpg',
+        name: 'Penso para Cicatriz de Cesariana',
+        category: 'Cuidados do Corpo',
+        brand: 'Wells',
+        description: 'Proteção e cuidado da cicatriz de cesariana'
+    }
+];
+
 // Tutorial Content
 const tutorials = {
     banho: {
@@ -297,12 +406,12 @@ function setupEventListeners() {
         });
     }
 
-    // Pharmacy search
-    const pharmacySearch = document.getElementById('pharmacy-search');
-    if (pharmacySearch) {
-        pharmacySearch.addEventListener('keypress', (e) => {
+    // Product search
+    const productSearch = document.getElementById('product-search');
+    if (productSearch) {
+        productSearch.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
-                searchPharmacies();
+                searchProducts();
             }
         });
     }
@@ -522,105 +631,67 @@ function scheduleConsultation() {
     alert('Sistema de agendamento de consultas será implementado em breve!\n\nPara agendar uma consulta, contacte:\nEmail: consultas@mammi.pt\nTelefone: +351 21 123 4567');
 }
 
-// Pharmacy Functions
-function searchPharmacies() {
-    const searchTerm = document.getElementById('pharmacy-search').value.toLowerCase();
-    const pharmacyList = document.getElementById('pharmacy-list');
-    
-    if (!pharmacyList) return;
-
-    // In a real application, this would search a database
-    const samplePharmacies = [
-        {
-            name: 'Farmácia Central',
-            address: 'Rua da Liberdade, 123',
-            city: 'Lisboa',
-            distance: '0.5 km',
-            phone: '+351 21 123 4567'
-        },
-        {
-            name: 'Farmácia do Bebé',
-            address: 'Avenida de Roma, 456',
-            city: 'Lisboa',
-            distance: '1.2 km',
-            phone: '+351 21 234 5678'
-        },
-        {
-            name: 'Farmácia Familiar',
-            address: 'Rua das Flores, 789',
-            city: 'Lisboa',
-            distance: '0.8 km',
-            phone: '+351 21 345 6789'
-        }
-    ];
-
-    const filteredPharmacies = samplePharmacies.filter(pharmacy => 
-        pharmacy.name.toLowerCase().includes(searchTerm) ||
-        pharmacy.address.toLowerCase().includes(searchTerm) ||
-        pharmacy.city.toLowerCase().includes(searchTerm)
-    );
-
-    renderPharmacyList(filteredPharmacies);
-}
-
-function renderPharmacyList(pharmacies) {
-    const pharmacyList = document.getElementById('pharmacy-list');
-    if (!pharmacyList) return;
-
-    pharmacyList.innerHTML = '';
-
-    pharmacies.forEach(pharmacy => {
-        const pharmacyElement = document.createElement('div');
-        pharmacyElement.className = 'pharmacy-item';
-        
-        pharmacyElement.innerHTML = `
-            <div class="pharmacy-info">
-                <h4>${pharmacy.name}</h4>
-                <p>${pharmacy.address}</p>
-                <p>${pharmacy.city}</p>
-                <div class="pharmacy-distance">
-                    <i class="fas fa-map-marker-alt"></i> ${pharmacy.distance}
-                </div>
-            </div>
-            <div class="pharmacy-actions">
-                <button class="btn btn-small" onclick="callPharmacy('${pharmacy.phone}')">
-                    <i class="fas fa-phone"></i>
-                </button>
-                <button class="btn btn-small" onclick="getDirections('${pharmacy.name}')">
-                    <i class="fas fa-directions"></i>
-                </button>
-            </div>
-        `;
-        
-        pharmacyList.appendChild(pharmacyElement);
+// Product Functions
+function showCategory(category) {
+    // Hide all product lists
+    const productLists = document.querySelectorAll('.product-list');
+    productLists.forEach(list => {
+        list.classList.remove('active');
     });
-}
-
-function getCurrentLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                // In a real application, this would use the location to find nearby pharmacies
-                alert('Localização obtida! A procurar farmácias próximas...');
-                searchPharmacies();
-            },
-            (error) => {
-                alert('Não foi possível obter a sua localização. Por favor, permita o acesso à localização ou pesquise manualmente.');
-            }
-        );
-    } else {
-        alert('Geolocalização não é suportada pelo seu navegador.');
+    
+    // Show selected category
+    const selectedList = document.getElementById(`${category}-list`);
+    if (selectedList) {
+        selectedList.classList.add('active');
+    }
+    
+    // Update button states
+    const buttons = document.querySelectorAll('.category-btn');
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    const activeButton = document.getElementById(`btn-${category}`);
+    if (activeButton) {
+        activeButton.classList.add('active');
+    }
+    
+    // Clear search
+    const searchInput = document.getElementById('product-search');
+    if (searchInput) {
+        searchInput.value = '';
+    }
+    
+    // Show all products when clearing search
+    if (selectedList) {
+        const productItems = selectedList.querySelectorAll('.product-item');
+        productItems.forEach(item => {
+            item.style.display = 'flex';
+        });
     }
 }
 
-function callPharmacy(phoneNumber) {
-    // In a real application, this would initiate a phone call
-    alert(`A ligar para ${phoneNumber}`);
-}
-
-function getDirections(pharmacyName) {
-    // In a real application, this would open a maps application
-    alert(`A abrir direções para ${pharmacyName}`);
+function searchProducts() {
+    const searchTerm = document.getElementById('product-search').value.toLowerCase();
+    const activeList = document.querySelector('.product-list.active');
+    
+    if (!activeList) return;
+    
+    const productItems = activeList.querySelectorAll('.product-item');
+    
+    productItems.forEach(item => {
+        const productName = item.querySelector('h4').textContent.toLowerCase();
+        const productDescription = item.querySelector('p').textContent.toLowerCase();
+        const productCategory = item.querySelector('.product-category').textContent.toLowerCase();
+        
+        if (productName.includes(searchTerm) || 
+            productDescription.includes(searchTerm) || 
+            productCategory.includes(searchTerm)) {
+            item.style.display = 'flex';
+        } else {
+            item.style.display = 'none';
+        }
+    });
 }
 
 // Utility Functions
@@ -634,9 +705,14 @@ function formatTime(date) {
 
 // Close modal when clicking outside
 document.addEventListener('click', (e) => {
-    const modal = document.getElementById('tutorial-modal');
-    if (e.target === modal) {
+    const tutorialModal = document.getElementById('tutorial-modal');
+    if (e.target === tutorialModal) {
         closeTutorial();
+    }
+    
+    const productModal = document.getElementById('product-image-modal');
+    if (e.target === productModal) {
+        closeProductModal();
     }
     
     // Close mobile menu when clicking outside
@@ -650,31 +726,93 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Initialize pharmacy list on page load
-document.addEventListener('DOMContentLoaded', function() {
-    const samplePharmacies = [
-        {
-            name: 'Farmácia Central',
-            address: 'Rua da Liberdade, 123',
-            city: 'Lisboa',
-            distance: '0.5 km',
-            phone: '+351 21 123 4567'
-        },
-        {
-            name: 'Farmácia do Bebé',
-            address: 'Avenida de Roma, 456',
-            city: 'Lisboa',
-            distance: '1.2 km',
-            phone: '+351 21 234 5678'
-        },
-        {
-            name: 'Farmácia Familiar',
-            address: 'Rua das Flores, 789',
-            city: 'Lisboa',
-            distance: '0.8 km',
-            phone: '+351 21 345 6789'
-        }
-    ];
+// Close modals with ESC key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeTutorial();
+        closeProductModal();
+    }
+});
+
+// Function to get icon based on category
+function getCategoryIcon(category) {
+    const iconMap = {
+        'Cuidados do Corpo': 'fas fa-spa',
+        'Lingerie': 'fas fa-tshirt',
+        'Pós-Parto': 'fas fa-heart',
+        'Suplementos': 'fas fa-pills',
+        'Higiene': 'fas fa-shower',
+        'Amamentação': 'fas fa-baby-bottle'
+    };
+    return iconMap[category] || 'fas fa-pills';
+}
+
+// Function to render Farmamama products
+function renderFarmamamaProducts() {
+    const farmamamaList = document.getElementById('farmamama-list');
+    if (!farmamamaList) return;
     
-    renderPharmacyList(samplePharmacies);
+    farmamamaList.innerHTML = '';
+    
+    farmamamaProducts.forEach((product, index) => {
+        const productElement = document.createElement('div');
+        productElement.className = 'product-item';
+        
+        const icon = getCategoryIcon(product.category);
+        const imagePath = `produtosmae/${product.filename}`;
+        
+        // Escape quotes for onclick attribute
+        const escapedName = product.name.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+        const escapedBrand = product.brand.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+        const escapedImagePath = imagePath.replace(/'/g, "&#39;");
+        
+        productElement.innerHTML = `
+            <div class="product-image" onclick="openProductModal('${escapedImagePath}', '${escapedName}', '${escapedBrand}')">
+                <img src="${imagePath}" alt="${product.name}" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'${icon}\'></i>';">
+            </div>
+            <div class="product-info">
+                <h4>${product.name}</h4>
+                <p>${product.description}</p>
+                <div class="product-brand">Marca: <strong>${product.brand}</strong></div>
+                <span class="product-category">${product.category}</span>
+            </div>
+        `;
+        
+        farmamamaList.appendChild(productElement);
+    });
+}
+
+// Function to open product image modal
+function openProductModal(imagePath, productName, brand) {
+    const modal = document.getElementById('product-image-modal');
+    const modalImage = document.getElementById('modal-product-image');
+    const modalTitle = document.getElementById('modal-product-title');
+    const modalBrand = document.getElementById('modal-product-brand');
+    
+    if (modal && modalImage && modalTitle && modalBrand) {
+        modalImage.src = imagePath;
+        modalImage.alt = productName;
+        modalTitle.textContent = productName;
+        modalBrand.textContent = brand;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+}
+
+// Function to close product image modal
+function closeProductModal() {
+    const modal = document.getElementById('product-image-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+}
+
+// Initialize products on page load
+document.addEventListener('DOMContentLoaded', function() {
+    // Render Farmamama products
+    renderFarmamamaProducts();
+    
+    // Ensure Farmababy is shown by default
+    showCategory('farmababy');
 });
