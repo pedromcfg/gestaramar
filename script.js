@@ -114,6 +114,73 @@ const farmamamaProducts = [
     }
 ];
 
+// Farmababy Products data extracted from filenames
+const farmababyProducts = [
+    {
+        filename: 'Almofada de Amamentação.jpg',
+        name: 'Almofada de Amamentação',
+        category: 'Amamentação',
+        brand: 'Genérico',
+        description: 'Almofada confortável para apoio durante a amamentação'
+    },
+    {
+        filename: 'Banheira de Bebé Antiderrapante.jpg',
+        name: 'Banheira de Bebé Antiderrapante',
+        category: 'Higiene',
+        brand: 'Genérico',
+        description: 'Banheira segura com superfície antiderrapante para o banho do bebé'
+    },
+    {
+        filename: 'Cadeira Auto Unico Evo i-Size Black-bebe.jpg',
+        name: 'Cadeira Auto Unico Evo i-Size',
+        category: 'Segurança',
+        brand: 'Unico',
+        description: 'Cadeira auto homologada i-Size para transporte seguro do bebé'
+    },
+    {
+        filename: 'Chucha em Silicone Mommy Feel 0-9M Rosa-bebe.jpg',
+        name: 'Chucha em Silicone Mommy Feel',
+        category: 'Conforto',
+        brand: 'Mommy Feel',
+        description: 'Chucha em silicone para bebés de 0 a 9 meses'
+    },
+    {
+        filename: 'Compressas Bebé Não Tecido.jpg',
+        name: 'Compressas Bebé Não Tecido',
+        category: 'Higiene',
+        brand: 'Genérico',
+        description: 'Compressas suaves e não tecido para cuidados do bebé'
+    },
+    {
+        filename: 'Leite Aptamil.jpg',
+        name: 'Leite Aptamil',
+        category: 'Alimentação',
+        brand: 'Aptamil',
+        description: 'Leite adaptado para recém-nascidos e bebés'
+    },
+    {
+        filename: 'Resguardos Descartáveis Bebé 60x40cm.jpg',
+        name: 'Resguardos Descartáveis Bebé',
+        category: 'Higiene',
+        brand: 'Genérico',
+        description: 'Resguardos descartáveis para mudança de fraldas'
+    },
+    {
+        filename: 'Soro Fisiológico Estéril.jpg',
+        name: 'Soro Fisiológico Estéril',
+        category: 'Higiene',
+        brand: 'Genérico',
+        description: 'Soro fisiológico estéril para limpeza nasal e ocular'
+    },
+    {
+        filename: 'uriage-bebe-creme-lavante.jpg',
+        name: 'Creme Lavante Uriage Bebé',
+        category: 'Higiene',
+        brand: 'Uriage',
+        description: 'Creme lavante suave e hipoalergénico para o banho do bebé'
+    }
+];
+
 // Tutorial Content
 const tutorials = {
     banho: {
@@ -643,6 +710,13 @@ function showCategory(category) {
     const selectedList = document.getElementById(`${category}-list`);
     if (selectedList) {
         selectedList.classList.add('active');
+        
+        // Render products if needed
+        if (category === 'farmababy') {
+            renderFarmababyProducts();
+        } else if (category === 'farmamama') {
+            renderFarmamamaProducts();
+        }
     }
     
     // Update button states
@@ -742,7 +816,10 @@ function getCategoryIcon(category) {
         'Pós-Parto': 'fas fa-heart',
         'Suplementos': 'fas fa-pills',
         'Higiene': 'fas fa-shower',
-        'Amamentação': 'fas fa-baby-bottle'
+        'Amamentação': 'fas fa-baby-bottle',
+        'Segurança': 'fas fa-shield-alt',
+        'Conforto': 'fas fa-couch',
+        'Alimentação': 'fas fa-apple-alt'
     };
     return iconMap[category] || 'fas fa-pills';
 }
@@ -782,6 +859,41 @@ function renderFarmamamaProducts() {
     });
 }
 
+// Function to render Farmababy products
+function renderFarmababyProducts() {
+    const farmababyList = document.getElementById('farmababy-list');
+    if (!farmababyList) return;
+    
+    farmababyList.innerHTML = '';
+    
+    farmababyProducts.forEach((product, index) => {
+        const productElement = document.createElement('div');
+        productElement.className = 'product-item';
+        
+        const icon = getCategoryIcon(product.category);
+        const imagePath = `produtosBEBE/${product.filename}`;
+        
+        // Escape quotes for onclick attribute
+        const escapedName = product.name.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+        const escapedBrand = product.brand.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+        const escapedImagePath = imagePath.replace(/'/g, "&#39;");
+        
+        productElement.innerHTML = `
+            <div class="product-image" onclick="openProductModal('${escapedImagePath}', '${escapedName}', '${escapedBrand}')">
+                <img src="${imagePath}" alt="${product.name}" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'${icon}\'></i>';">
+            </div>
+            <div class="product-info">
+                <h4>${product.name}</h4>
+                <p>${product.description}</p>
+                <div class="product-brand">Marca: <strong>${product.brand}</strong></div>
+                <span class="product-category">${product.category}</span>
+            </div>
+        `;
+        
+        farmababyList.appendChild(productElement);
+    });
+}
+
 // Function to open product image modal
 function openProductModal(imagePath, productName, brand) {
     const modal = document.getElementById('product-image-modal');
@@ -810,8 +922,8 @@ function closeProductModal() {
 
 // Initialize products on page load
 document.addEventListener('DOMContentLoaded', function() {
-    // Render Farmamama products
-    renderFarmamamaProducts();
+    // Render Farmababy products (default)
+    renderFarmababyProducts();
     
     // Ensure Farmababy is shown by default
     showCategory('farmababy');
