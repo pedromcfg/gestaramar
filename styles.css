@@ -1489,6 +1489,377 @@ main {
     margin-bottom: 1rem;
 }
 
+.meditation-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.meditation-audio {
+    margin: 1.5rem 0;
+}
+
+.meditation-audio audio {
+    width: 100%;
+    border-radius: var(--border-radius);
+}
+
+.meditation-duration {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+/* Nutrition Section */
+.nutrition-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nutrition-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.nutrition-tab {
+    padding: 1rem 2rem;
+    background: var(--white);
+    border: 2px solid var(--baby-pink);
+    color: var(--baby-pink);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.nutrition-tab:hover {
+    background: var(--soft-pink);
+}
+
+.nutrition-tab.active {
+    background: var(--baby-pink);
+    color: var(--white);
+}
+
+.nutrition-tab-content {
+    display: none;
+}
+
+.nutrition-tab-content.active {
+    display: block;
+}
+
+.nutrition-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.nutrition-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--baby-pink);
+}
+
+.nutrition-card i {
+    font-size: 2.5rem;
+    color: var(--baby-pink);
+    margin-bottom: 1rem;
+}
+
+.nutrition-card h4 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.nutrition-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nutrition-card ul li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.nutrition-card ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--baby-blue);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.recipe-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.recipe-card i {
+    font-size: 2.5rem;
+    color: var(--baby-pink);
+    margin-bottom: 1rem;
+}
+
+.recipe-card h4 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.recipe-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+/* Mental Health Section */
+.mental-health-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mental-health-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--soft-pink), var(--white));
+    border-radius: var(--border-radius);
+}
+
+.mental-health-intro h3 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.mental-health-intro p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.mental-health-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.mental-health-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--baby-pink);
+}
+
+.mental-health-card i {
+    font-size: 2.5rem;
+    color: var(--baby-pink);
+    margin-bottom: 1rem;
+}
+
+.mental-health-card h4 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.mental-health-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.mental-health-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.mental-health-card ul li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.mental-health-card ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--baby-blue);
+    font-weight: bold;
+}
+
+.mental-health-articles {
+    margin-top: 3rem;
+}
+
+.mental-health-articles h3 {
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+/* Nutritionist Section */
+.nutritionist-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nutritionist-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--soft-pink), var(--white));
+    border-radius: var(--border-radius);
+}
+
+.nutritionist-intro h3 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.nutritionist-intro p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.nutritionist-benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.benefit-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--baby-blue);
+}
+
+.benefit-card i {
+    font-size: 2.5rem;
+    color: var(--baby-blue);
+    margin-bottom: 1rem;
+}
+
+.benefit-card h4 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.benefit-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.benefit-card ul li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.benefit-card ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--baby-blue);
+    font-weight: bold;
+}
+
+.nutritionist-consultation {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.nutritionist-consultation h3 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.nutritionist-consultation p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.nutritionist-consultation .consultation-card {
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.nutritionist-consultation .consultation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.nutritionist-consultation .consultation-card i {
+    font-size: 3rem;
+    color: var(--baby-pink);
+    margin-bottom: 1rem;
+}
+
+.nutritionist-consultation .consultation-card h4 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.nutritionist-consultation .consultation-card p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
 /* Care Section */
 .care-tabs {
     display: flex;
@@ -1980,6 +2351,25 @@ main {
     
     .tutorials-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .nutrition-tabs {
+        flex-direction: column;
+    }
+    
+    .nutrition-info,
+    .recipes-grid,
+    .mental-health-cards,
+    .nutritionist-benefits {
+        grid-template-columns: 1fr;
+    }
+    
+    .meditation-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .meditation-audio {
+        margin: 1rem 0;
     }
     
     .tutorial-header {

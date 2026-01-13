@@ -716,6 +716,13 @@ function showSection(sectionId) {
 
     // Close mobile menu if open
     closeMobileMenu();
+    
+    // Load products when opening essentials sections
+    if (sectionId === 'essenciais-mae') {
+        renderFarmamamaProducts();
+    } else if (sectionId === 'essenciais-bebe') {
+        renderFarmababyProducts();
+    }
 }
 
 function testMenu() {
@@ -1077,6 +1084,75 @@ function searchProducts() {
             item.style.display = 'none';
         }
     });
+}
+
+function searchProductsMae() {
+    const searchTerm = document.getElementById('product-search-mae').value.toLowerCase();
+    const productList = document.getElementById('farmamama-list');
+    
+    if (!productList) return;
+    
+    const productItems = productList.querySelectorAll('.product-item');
+    
+    productItems.forEach(item => {
+        const productName = item.querySelector('h4').textContent.toLowerCase();
+        const productDescription = item.querySelector('p').textContent.toLowerCase();
+        const productCategory = item.querySelector('.product-category')?.textContent.toLowerCase() || '';
+        
+        if (productName.includes(searchTerm) || 
+            productDescription.includes(searchTerm) || 
+            productCategory.includes(searchTerm)) {
+            item.style.display = 'flex';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
+function searchProductsBebe() {
+    const searchTerm = document.getElementById('product-search-bebe').value.toLowerCase();
+    const productList = document.getElementById('farmababy-list');
+    
+    if (!productList) return;
+    
+    const productItems = productList.querySelectorAll('.product-item');
+    
+    productItems.forEach(item => {
+        const productName = item.querySelector('h4').textContent.toLowerCase();
+        const productDescription = item.querySelector('p').textContent.toLowerCase();
+        const productCategory = item.querySelector('.product-category')?.textContent.toLowerCase() || '';
+        
+        if (productName.includes(searchTerm) || 
+            productDescription.includes(searchTerm) || 
+            productCategory.includes(searchTerm)) {
+            item.style.display = 'flex';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
+function showNutritionTab(tab) {
+    // Hide all tab contents
+    const tabContents = document.querySelectorAll('.nutrition-tab-content');
+    tabContents.forEach(content => {
+        content.classList.remove('active');
+    });
+    
+    // Remove active class from all tabs
+    const tabs = document.querySelectorAll('.nutrition-tab');
+    tabs.forEach(t => {
+        t.classList.remove('active');
+    });
+    
+    // Show selected tab content
+    const selectedContent = document.getElementById(`${tab}-content`);
+    if (selectedContent) {
+        selectedContent.classList.add('active');
+    }
+    
+    // Add active class to clicked tab
+    event.target.classList.add('active');
 }
 
 // Utility Functions

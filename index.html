@@ -19,6 +19,20 @@
                 <ul class="nav-list">
                     <li><a href="#home" class="nav-link active" onclick="showSection('home'); return false;">Início</a></li>
                     
+                    <!-- Cuidados com a Mamã Dropdown -->
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" onclick="toggleDropdown(event, this); return false;">
+                            Cuidados com a Mamã <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#cuidados" class="dropdown-link" onclick="showSection('cuidados'); return false;">Cuidados</a></li>
+                            <li><a href="#essenciais-mae" class="dropdown-link" onclick="showSection('essenciais-mae'); return false;">Essenciais da Mãe</a></li>
+                            <li><a href="#nutricao" class="dropdown-link" onclick="showSection('nutricao'); return false;">Nutrição</a></li>
+                            <li><a href="#saude-mental" class="dropdown-link" onclick="showSection('saude-mental'); return false;">Saúde Mental</a></li>
+                            <li><a href="#meditacao" class="dropdown-link" onclick="showSection('meditacao'); return false;">Meditação</a></li>
+                        </ul>
+                    </li>
+                    
                     <!-- Cuidados com o Bebé Dropdown -->
                     <li class="nav-dropdown">
                         <a href="#" class="nav-link dropdown-toggle" onclick="toggleDropdown(event, this); return false;">
@@ -27,33 +41,19 @@
                         <ul class="dropdown-menu">
                             <li><a href="#tutoriais" class="dropdown-link" onclick="showSection('tutoriais'); return false;">Tutoriais</a></li>
                             <li><a href="#vacinas" class="dropdown-link" onclick="showSection('vacinas'); return false;">Vacinas</a></li>
-                            <li><a href="#farmacias" class="dropdown-link" onclick="showSection('farmacias'); return false;">Essenciais</a></li>
+                            <li><a href="#essenciais-bebe" class="dropdown-link" onclick="showSection('essenciais-bebe'); return false;">Essenciais do Bebé</a></li>
                         </ul>
                     </li>
                     
-                    <!-- Saúde e Bem-estar Dropdown -->
+                    <!-- Apoio Profissional Dropdown -->
                     <li class="nav-dropdown">
                         <a href="#" class="nav-link dropdown-toggle" onclick="toggleDropdown(event, this); return false;">
-                            Saúde e Bem-estar <i class="fas fa-chevron-down"></i>
+                            Apoio Profissional <i class="fas fa-chevron-down"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#bemestar" class="dropdown-link" onclick="showSection('bemestar'); return false;">Bem-estar</a></li>
-                            <li><a href="#meditacao" class="dropdown-link" onclick="showSection('meditacao'); return false;">Meditação</a></li>
-                            <li><a href="#lembretes" class="dropdown-link" onclick="showSection('lembretes'); return false;">Lembretes</a></li>
-                            <li><a href="#cuidados" class="dropdown-link" onclick="showSection('cuidados'); return false;">Cuidados</a></li>
-                        </ul>
-                    </li>
-                    
-                    <!-- Apoio e Comunidade Dropdown -->
-                    <li class="nav-dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" onclick="toggleDropdown(event, this); return false;">
-                            Apoio e Comunidade <i class="fas fa-chevron-down"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#chat" class="dropdown-link" onclick="showSection('chat'); return false;">Chat</a></li>
+                            <li><a href="#chat" class="dropdown-link" onclick="showSection('chat'); return false;">Chat entre Mães</a></li>
                             <li><a href="#apoio" class="dropdown-link" onclick="showSection('apoio'); return false;">Apoio Psicológico</a></li>
-                            <li><a href="#teleconsultas" class="dropdown-link" onclick="showSection('teleconsultas'); return false;">Teleconsultas</a></li>
-                            <li><a href="#chatia" class="dropdown-link" onclick="showSection('chatia'); return false;">Assistente IA</a></li>
+                            <li><a href="#nutricionista" class="dropdown-link" onclick="showSection('nutricionista'); return false;">Nutricionista</a></li>
                         </ul>
                     </li>
                     
@@ -349,24 +349,37 @@
             </div>
         </section>
 
-        <!-- Produtos Farmacêuticos Section -->
-        <section id="farmacias" class="section">
+        <!-- Essenciais da Mãe Section -->
+        <section id="essenciais-mae" class="section">
             <div class="container">
-                <h2 class="section-title">Produtos Essenciais</h2>
+                <h2 class="section-title">Essenciais para a Mamã</h2>
                 <div class="products-content">
-                    <div class="product-categories">
-                        <button class="category-btn active" onclick="showCategory('farmababy')" id="btn-farmababy">
-                            <i class="fas fa-baby"></i> Essenciais para o Bebé
-                        </button>
-                        <button class="category-btn" onclick="showCategory('farmamama')" id="btn-farmamama">
-                            <i class="fas fa-heart"></i> Essenciais para a Mamã
-                        </button>
-                    </div>
-                    
                     <div class="product-search">
                         <div class="search-box">
-                            <input type="text" id="product-search" placeholder="Pesquisar produtos...">
-                            <button onclick="searchProducts()">
+                            <input type="text" id="product-search-mae" placeholder="Pesquisar produtos...">
+                            <button onclick="searchProductsMae()">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Farmamama Products -->
+                    <div class="product-list" id="farmamama-list">
+                        <!-- Products will be loaded dynamically from JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Essenciais do Bebé Section -->
+        <section id="essenciais-bebe" class="section">
+            <div class="container">
+                <h2 class="section-title">Essenciais para o Bebé</h2>
+                <div class="products-content">
+                    <div class="product-search">
+                        <div class="search-box">
+                            <input type="text" id="product-search-bebe" placeholder="Pesquisar produtos...">
+                            <button onclick="searchProductsBebe()">
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>
@@ -374,11 +387,6 @@
                     
                     <!-- Farmababy Products -->
                     <div class="product-list active" id="farmababy-list">
-                        <!-- Products will be loaded dynamically from JavaScript -->
-                    </div>
-                    
-                    <!-- Farmamama Products -->
-                    <div class="product-list" id="farmamama-list">
                         <!-- Products will be loaded dynamically from JavaScript -->
                     </div>
                 </div>
@@ -492,26 +500,282 @@
             </div>
         </section>
 
+        <!-- Nutrição Section -->
+        <section id="nutricao" class="section">
+            <div class="container">
+                <h2 class="section-title">Nutrição e Hábitos Alimentares</h2>
+                <div class="nutrition-content">
+                    <div class="nutrition-tabs">
+                        <button class="nutrition-tab active" onclick="showNutritionTab('gravidez')">Alimentação na Gravidez</button>
+                        <button class="nutrition-tab" onclick="showNutritionTab('posparto')">Alimentação Pós-Parto</button>
+                        <button class="nutrition-tab" onclick="showNutritionTab('receitas')">Receitas Saudáveis</button>
+                    </div>
+                    
+                    <div class="nutrition-tab-content active" id="gravidez-content">
+                        <h3>Alimentação na Gravidez</h3>
+                        <div class="nutrition-info">
+                            <div class="nutrition-card">
+                                <i class="fas fa-apple-alt"></i>
+                                <h4>Nutrientes Essenciais</h4>
+                                <ul>
+                                    <li><strong>Ácido Fólico:</strong> Crucial para o desenvolvimento do tubo neural do bebé. Encontrado em vegetais de folha verde, leguminosas e cereais fortificados.</li>
+                                    <li><strong>Ferro:</strong> Importante para prevenir anemia. Presente em carnes magras, leguminosas e vegetais de folha verde.</li>
+                                    <li><strong>Cálcio:</strong> Essencial para o desenvolvimento dos ossos do bebé. Encontrado em laticínios, sardinhas e vegetais de folha verde.</li>
+                                    <li><strong>Ómega-3:</strong> Importante para o desenvolvimento cerebral. Presente em peixes gordos, nozes e sementes de linhaça.</li>
+                                </ul>
+                            </div>
+                            <div class="nutrition-card">
+                                <i class="fas fa-ban"></i>
+                                <h4>Alimentos a Evitar</h4>
+                                <ul>
+                                    <li>Peixe cru ou mal cozido (risco de listeriose)</li>
+                                    <li>Carne crua ou mal passada</li>
+                                    <li>Ovos crus ou mal cozidos</li>
+                                    <li>Queijos de pasta mole não pasteurizados</li>
+                                    <li>Álcool e cafeína em excesso</li>
+                                    <li>Peixes com alto teor de mercúrio (atum, peixe-espada)</li>
+                                </ul>
+                            </div>
+                            <div class="nutrition-card">
+                                <i class="fas fa-lightbulb"></i>
+                                <h4>Dicas Importantes</h4>
+                                <ul>
+                                    <li>Faça refeições pequenas e frequentes (5-6 por dia)</li>
+                                    <li>Mantenha-se hidratada (8-10 copos de água por dia)</li>
+                                    <li>Inclua fibras na alimentação para prevenir prisão de ventre</li>
+                                    <li>Evite dietas restritivas sem orientação médica</li>
+                                    <li>Consulte sempre o seu médico ou nutricionista</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="nutrition-tab-content" id="posparto-content">
+                        <h3>Alimentação Pós-Parto</h3>
+                        <div class="nutrition-info">
+                            <div class="nutrition-card">
+                                <i class="fas fa-seedling"></i>
+                                <h4>Recuperação e Energia</h4>
+                                <ul>
+                                    <li><strong>Proteínas:</strong> Essenciais para a recuperação dos tecidos. Inclua carnes magras, peixe, ovos, leguminosas e laticínios.</li>
+                                    <li><strong>Hidratação:</strong> Crucial, especialmente se estiver a amamentar. Beba pelo menos 2-3 litros de água por dia.</li>
+                                    <li><strong>Fibras:</strong> Ajudam a prevenir a prisão de ventre pós-parto. Inclua frutas, vegetais e cereais integrais.</li>
+                                    <li><strong>Ferro:</strong> Importante para repor as perdas durante o parto. Consuma carnes vermelhas, leguminosas e vegetais de folha verde.</li>
+                                </ul>
+                            </div>
+                            <div class="nutrition-card">
+                                <i class="fas fa-baby"></i>
+                                <h4>Se Estiver a Amamentar</h4>
+                                <ul>
+                                    <li>Mantenha uma alimentação equilibrada e variada</li>
+                                    <li>Aumente a ingestão calórica em cerca de 500 calorias por dia</li>
+                                    <li>Consuma alimentos ricos em DHA (peixes gordos, nozes) para o desenvolvimento do bebé</li>
+                                    <li>Evite alimentos que possam causar cólicas no bebé (se notar reações)</li>
+                                    <li>Limite a cafeína (máximo 200mg por dia)</li>
+                                </ul>
+                            </div>
+                            <div class="nutrition-card">
+                                <i class="fas fa-heart"></i>
+                                <h4>Dicas para o Bem-Estar</h4>
+                                <ul>
+                                    <li>Prepare refeições simples e nutritivas</li>
+                                    <li>Tenha snacks saudáveis à mão (frutas, nozes, iogurte)</li>
+                                    <li>Peça ajuda para preparar refeições</li>
+                                    <li>Não se esqueça de comer regularmente</li>
+                                    <li>Seja paciente consigo mesma - a recuperação leva tempo</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="nutrition-tab-content" id="receitas-content">
+                        <h3>Receitas Saudáveis</h3>
+                        <div class="recipes-grid">
+                            <div class="recipe-card">
+                                <i class="fas fa-utensils"></i>
+                                <h4>Smoothie Energético</h4>
+                                <p><strong>Ingredientes:</strong> 1 banana, 1/2 chávena de mirtilos, 1 chávena de espinafres, 1 colher de sopa de sementes de chia, 1 chávena de leite ou bebida vegetal</p>
+                                <p><strong>Preparação:</strong> Misture tudo no liquidificador até obter uma textura suave. Ideal para um pequeno-almoço nutritivo.</p>
+                            </div>
+                            <div class="recipe-card">
+                                <i class="fas fa-utensils"></i>
+                                <h4>Salada de Quinoa e Legumes</h4>
+                                <p><strong>Ingredientes:</strong> Quinoa cozida, tomate, pepino, abacate, nozes, azeite e limão</p>
+                                <p><strong>Preparação:</strong> Misture todos os ingredientes e tempere com azeite e limão. Rica em proteínas e fibras.</p>
+                            </div>
+                            <div class="recipe-card">
+                                <i class="fas fa-utensils"></i>
+                                <h4>Salmão Grelhado com Vegetais</h4>
+                                <p><strong>Ingredientes:</strong> Salmão, brócolos, cenoura, batata-doce, azeite e ervas</p>
+                                <p><strong>Preparação:</strong> Grelhe o salmão e asse os vegetais no forno. Rico em ómega-3 e proteínas.</p>
+                            </div>
+                            <div class="recipe-card">
+                                <i class="fas fa-utensils"></i>
+                                <h4>Papa de Aveia com Frutas</h4>
+                                <p><strong>Ingredientes:</strong> Aveia, leite, banana, frutos vermelhos, mel (após 12 meses para bebés)</p>
+                                <p><strong>Preparação:</strong> Coza a aveia no leite, adicione as frutas e sirva morno. Ideal para toda a família.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Saúde Mental Section -->
+        <section id="saude-mental" class="section">
+            <div class="container">
+                <h2 class="section-title">Saúde Mental</h2>
+                <div class="mental-health-content">
+                    <div class="mental-health-intro">
+                        <h3>Importância do Bem-Estar Mental da Mãe</h3>
+                        <p>A saúde mental durante a gravidez e no pós-parto é fundamental tanto para a mãe quanto para o bebé. É normal sentir uma variedade de emoções durante esta jornada, mas é importante reconhecer quando precisamos de ajuda.</p>
+                    </div>
+                    
+                    <div class="mental-health-cards">
+                        <div class="mental-health-card">
+                            <i class="fas fa-heart"></i>
+                            <h4>Durante a Gravidez</h4>
+                            <p>As alterações hormonais podem afetar o humor e o bem-estar emocional. É importante:</p>
+                            <ul>
+                                <li>Falar sobre os seus sentimentos</li>
+                                <li>Praticar técnicas de relaxamento</li>
+                                <li>Manter uma rede de apoio</li>
+                                <li>Dormir adequadamente</li>
+                                <li>Procurar ajuda profissional se necessário</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mental-health-card">
+                            <i class="fas fa-baby"></i>
+                            <h4>Pós-Parto</h4>
+                            <p>O pós-parto pode trazer desafios emocionais. É normal sentir:</p>
+                            <ul>
+                                <li>Baby blues (tristeza leve nos primeiros dias)</li>
+                                <li>Cansaço extremo</li>
+                                <li>Alterações de humor</li>
+                                <li>Ansiedade sobre os cuidados com o bebé</li>
+                            </ul>
+                            <p><strong>Importante:</strong> Se estes sentimentos persistirem ou se intensificarem, pode ser depressão pós-parto. Procure ajuda profissional.</p>
+                        </div>
+                        
+                        <div class="mental-health-card">
+                            <i class="fas fa-hands-helping"></i>
+                            <h4>Quando Procurar Ajuda</h4>
+                            <ul>
+                                <li>Sentimentos de tristeza ou ansiedade que duram mais de 2 semanas</li>
+                                <li>Dificuldade em cuidar de si ou do bebé</li>
+                                <li>Pensamentos de fazer mal a si mesma ou ao bebé</li>
+                                <li>Perda de interesse em atividades que antes gostava</li>
+                                <li>Dificuldades para dormir mesmo quando o bebé está a dormir</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mental-health-articles">
+                        <h3>Artigos Técnicos</h3>
+                        <div class="articles-list">
+                            <div class="article-item">
+                                <h4>Depressão Pós-Parto: Sinais e Tratamento</h4>
+                                <p>Artigo científico sobre a depressão pós-parto, seus sintomas, causas e opções de tratamento disponíveis.</p>
+                                <a href="#" class="btn btn-small">Ler Artigo</a>
+                            </div>
+                            <div class="article-item">
+                                <h4>Ansiedade na Gravidez: Como Gerir</h4>
+                                <p>Informações sobre ansiedade durante a gravidez e estratégias eficazes para a gerir.</p>
+                                <a href="#" class="btn btn-small">Ler Artigo</a>
+                            </div>
+                            <div class="article-item">
+                                <h4>Bem-Estar Mental e Desenvolvimento do Bebé</h4>
+                                <p>Estudos sobre como a saúde mental da mãe afeta o desenvolvimento emocional e cognitivo do bebé.</p>
+                                <a href="#" class="btn btn-small">Ler Artigo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Meditação Section -->
         <section id="meditacao" class="section">
             <div class="container">
-                <h2 class="section-title">Meditação e Saúde Mental</h2>
+                <h2 class="section-title">Meditação e Relaxamento</h2>
                 <div class="meditation-content">
+                    <div class="meditation-intro">
+                        <p>Encontre momentos de paz e tranquilidade com as nossas meditações guiadas. Estes áudios foram criados especialmente para mães durante a gravidez e no pós-parto.</p>
+                    </div>
+                    
                     <div class="meditation-cards">
                         <div class="meditation-card" onclick="playMeditation('respiração')">
                             <i class="fas fa-wind"></i>
                             <h4>Meditação de Respiração</h4>
-                            <p>Exercícios de respiração para reduzir ansiedade</p>
+                            <p>Exercícios de respiração para reduzir ansiedade e stress</p>
+                            <div class="meditation-audio">
+                                <audio controls id="audio-respiracao">
+                                    <source src="#" type="audio/mpeg">
+                                    O seu navegador não suporta áudio.
+                                </audio>
+                            </div>
+                            <span class="meditation-duration"><i class="fas fa-clock"></i> 10 min</span>
                         </div>
                         <div class="meditation-card" onclick="playMeditation('sono')">
                             <i class="fas fa-moon"></i>
                             <h4>Meditação para o Sono</h4>
-                            <p>Relaxamento para melhorar a qualidade do sono</p>
+                            <p>Relaxamento profundo para melhorar a qualidade do sono</p>
+                            <div class="meditation-audio">
+                                <audio controls id="audio-sono">
+                                    <source src="#" type="audio/mpeg">
+                                    O seu navegador não suporta áudio.
+                                </audio>
+                            </div>
+                            <span class="meditation-duration"><i class="fas fa-clock"></i> 15 min</span>
                         </div>
                         <div class="meditation-card" onclick="playMeditation('stress')">
                             <i class="fas fa-spa"></i>
                             <h4>Redução de Stress</h4>
-                            <p>Meditações guiadas para aliviar o stress</p>
+                            <p>Meditações guiadas para aliviar o stress e tensão</p>
+                            <div class="meditation-audio">
+                                <audio controls id="audio-stress">
+                                    <source src="#" type="audio/mpeg">
+                                    O seu navegador não suporta áudio.
+                                </audio>
+                            </div>
+                            <span class="meditation-duration"><i class="fas fa-clock"></i> 12 min</span>
+                        </div>
+                        <div class="meditation-card" onclick="playMeditation('gravidez')">
+                            <i class="fas fa-heart"></i>
+                            <h4>Meditação para a Gravidez</h4>
+                            <p>Conecte-se com o seu bebé através da meditação</p>
+                            <div class="meditation-audio">
+                                <audio controls id="audio-gravidez">
+                                    <source src="#" type="audio/mpeg">
+                                    O seu navegador não suporta áudio.
+                                </audio>
+                            </div>
+                            <span class="meditation-duration"><i class="fas fa-clock"></i> 20 min</span>
+                        </div>
+                        <div class="meditation-card" onclick="playMeditation('posparto')">
+                            <i class="fas fa-baby"></i>
+                            <h4>Meditação Pós-Parto</h4>
+                            <p>Encontre equilíbrio e paz durante o pós-parto</p>
+                            <div class="meditation-audio">
+                                <audio controls id="audio-posparto">
+                                    <source src="#" type="audio/mpeg">
+                                    O seu navegador não suporta áudio.
+                                </audio>
+                            </div>
+                            <span class="meditation-duration"><i class="fas fa-clock"></i> 15 min</span>
+                        </div>
+                        <div class="meditation-card" onclick="playMeditation('amor')">
+                            <i class="fas fa-heartbeat"></i>
+                            <h4>Meditação de Amor Próprio</h4>
+                            <p>Fortaleça o amor e cuidado por si mesma</p>
+                            <div class="meditation-audio">
+                                <audio controls id="audio-amor">
+                                    <source src="#" type="audio/mpeg">
+                                    O seu navegador não suporta áudio.
+                                </audio>
+                            </div>
+                            <span class="meditation-duration"><i class="fas fa-clock"></i> 10 min</span>
                         </div>
                     </div>
                 </div>
@@ -521,7 +785,7 @@
         <!-- Cuidados Section -->
         <section id="cuidados" class="section">
             <div class="container">
-                <h2 class="section-title">Cuidados e Precauções</h2>
+                <h2 class="section-title">Cuidados com a mamã</h2>
                 <div class="care-content">
                     <div class="care-tabs">
                         <button class="care-tab active" onclick="showCareTab('gestacao')">Durante a Gravidez</button>
@@ -563,17 +827,74 @@
                 <h2 class="section-title">Teleconsultas</h2>
                 <div class="teleconsultation-content">
                     <div class="consultation-cards">
-                        <div class="consultation-card" onclick="scheduleTeleconsultation('nutricionista')">
-                            <i class="fas fa-user-md"></i>
-                            <h4>Consulta com Nutricionista</h4>
-                            <p>Agende uma consulta online com nutricionista especializado</p>
-                            <button class="btn btn-primary">Agendar</button>
-                        </div>
                         <div class="consultation-card" onclick="scheduleTeleconsultation('enfermeiro')">
                             <i class="fas fa-user-nurse"></i>
                             <h4>Consulta com Enfermeiro</h4>
                             <p>Agende uma consulta online com enfermeiro especializado</p>
                             <button class="btn btn-primary">Agendar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nutricionista Section -->
+        <section id="nutricionista" class="section">
+            <div class="container">
+                <h2 class="section-title">Nutricionista</h2>
+                <div class="nutritionist-content">
+                    <div class="nutritionist-intro">
+                        <h3>Importância da Nutrição na Gravidez e Pós-Parto</h3>
+                        <p>A nutrição adequada é fundamental durante a gravidez e no período pós-parto. Uma alimentação equilibrada não só beneficia a saúde da mãe, mas também garante o desenvolvimento saudável do bebé e apoia a recuperação após o parto.</p>
+                    </div>
+                    
+                    <div class="nutritionist-benefits">
+                        <div class="benefit-card">
+                            <i class="fas fa-baby"></i>
+                            <h4>Durante a Gravidez</h4>
+                            <ul>
+                                <li>Apoia o desenvolvimento saudável do bebé</li>
+                                <li>Previne deficiências nutricionais</li>
+                                <li>Mantém a energia e bem-estar da mãe</li>
+                                <li>Prepara o corpo para o parto</li>
+                                <li>Reduz o risco de complicações</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="benefit-card">
+                            <i class="fas fa-heart"></i>
+                            <h4>No Pós-Parto</h4>
+                            <ul>
+                                <li>Acelera a recuperação do corpo</li>
+                                <li>Suporta a produção de leite materno</li>
+                                <li>Mantém os níveis de energia</li>
+                                <li>Previne deficiências nutricionais</li>
+                                <li>Promove o bem-estar geral</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="benefit-card">
+                            <i class="fas fa-user-md"></i>
+                            <h4>Como um Nutricionista Pode Ajudar</h4>
+                            <ul>
+                                <li>Plano alimentar personalizado</li>
+                                <li>Orientação sobre suplementação</li>
+                                <li>Gestão de peso saudável</li>
+                                <li>Resolução de problemas digestivos</li>
+                                <li>Suporte na amamentação</li>
+                                <li>Acompanhamento contínuo</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="nutritionist-consultation">
+                        <h3>Agende uma Consulta</h3>
+                        <p>Converse com um nutricionista especializado em gravidez e pós-parto através de uma teleconsulta.</p>
+                        <div class="consultation-card" onclick="scheduleTeleconsultation('nutricionista')">
+                            <i class="fas fa-calendar-check"></i>
+                            <h4>Consulta com Nutricionista</h4>
+                            <p>Agende uma consulta online com nutricionista especializado em nutrição materno-infantil</p>
+                            <button class="btn btn-primary">Agendar Consulta</button>
                         </div>
                     </div>
                 </div>
