@@ -17,12 +17,47 @@
             </a>
             <nav class="nav">
                 <ul class="nav-list">
-                    <li><a href="#home" class="nav-link active">Início</a></li>
-                    <li><a href="#tutoriais" class="nav-link">Tutoriais</a></li>
-                    <li><a href="#vacinas" class="nav-link">Vacinas</a></li>
-                    <li><a href="#chat" class="nav-link">Chat</a></li>
-                    <li><a href="#apoio" class="nav-link">Apoio Psicológico</a></li>
-                    <li><a href="#farmacias" class="nav-link">Fármacos</a></li>
+                    <li><a href="#home" class="nav-link active" onclick="showSection('home'); return false;">Início</a></li>
+                    
+                    <!-- Cuidados com o Bebé Dropdown -->
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" onclick="toggleDropdown(event, this); return false;">
+                            Cuidados com o Bebé <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#tutoriais" class="dropdown-link" onclick="showSection('tutoriais'); return false;">Tutoriais</a></li>
+                            <li><a href="#vacinas" class="dropdown-link" onclick="showSection('vacinas'); return false;">Vacinas</a></li>
+                            <li><a href="#farmacias" class="dropdown-link" onclick="showSection('farmacias'); return false;">Essenciais</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Saúde e Bem-estar Dropdown -->
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" onclick="toggleDropdown(event, this); return false;">
+                            Saúde e Bem-estar <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#bemestar" class="dropdown-link" onclick="showSection('bemestar'); return false;">Bem-estar</a></li>
+                            <li><a href="#meditacao" class="dropdown-link" onclick="showSection('meditacao'); return false;">Meditação</a></li>
+                            <li><a href="#lembretes" class="dropdown-link" onclick="showSection('lembretes'); return false;">Lembretes</a></li>
+                            <li><a href="#cuidados" class="dropdown-link" onclick="showSection('cuidados'); return false;">Cuidados</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Apoio e Comunidade Dropdown -->
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" onclick="toggleDropdown(event, this); return false;">
+                            Apoio e Comunidade <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#chat" class="dropdown-link" onclick="showSection('chat'); return false;">Chat</a></li>
+                            <li><a href="#apoio" class="dropdown-link" onclick="showSection('apoio'); return false;">Apoio Psicológico</a></li>
+                            <li><a href="#teleconsultas" class="dropdown-link" onclick="showSection('teleconsultas'); return false;">Teleconsultas</a></li>
+                            <li><a href="#chatia" class="dropdown-link" onclick="showSection('chatia'); return false;">Assistente IA</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="#galeria" class="nav-link" onclick="showSection('galeria'); return false;">Galeria</a></li>
                 </ul>
             </nav>
             <button class="mobile-menu-toggle" id="mobile-menu-btn" onclick="toggleMobileMenu()">
@@ -79,8 +114,8 @@
                 </div>
                 <div class="card" onclick="showSection('farmacias')">
                     <i class="fas fa-pills"></i>
-                    <h3>Produtos Farmacêuticos</h3>
-                    <p>Farmababy e Farmamama - produtos essenciais</p>
+                    <h3>Produtos Essenciais</h3>
+                    <p>Essenciais para a mamã e para o bebé</p>
                 </div>
             </div>
         </section>
@@ -159,6 +194,33 @@
             </div>
         </section>
 
+        <!-- Tutorial Individual Section -->
+        <section id="tutorial-view" class="section">
+            <div class="container">
+                <button class="btn-back" onclick="backToTutorials()">
+                    <i class="fas fa-arrow-left"></i> Voltar aos Tutoriais
+                </button>
+                <div class="tutorial-view-container">
+                    <div class="tutorial-header">
+                        <div class="tutorial-header-icon">
+                            <i id="tutorial-view-icon" class="fas fa-book"></i>
+                        </div>
+                        <div class="tutorial-header-content">
+                            <h1 id="tutorial-view-title">Tutorial</h1>
+                            <div class="tutorial-meta">
+                                <span class="tutorial-duration-badge">
+                                    <i class="fas fa-clock"></i> <span id="tutorial-view-duration">5 min</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tutorial-body" id="tutorial-view-content">
+                        <!-- Tutorial content will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Vacinas Section -->
         <section id="vacinas" class="section">
             <div class="container">
@@ -167,6 +229,9 @@
                     <div class="vaccine-info">
                         <h3>Plano Nacional de Vacinação</h3>
                         <p>Acompanhe as vacinas obrigatórias e facultativas do seu bebé</p>
+                        <button class="btn btn-primary" onclick="openVaccineSchedule()" style="margin-top: 1rem;">
+                            <i class="fas fa-calendar-plus"></i> Agendar Vacina
+                        </button>
                     </div>
                     
                     <div class="vaccine-calendar">
@@ -176,39 +241,8 @@
                             <button onclick="changeMonth(1)"><i class="fas fa-chevron-right"></i></button>
                         </div>
                         
-                        <div class="vaccine-list">
-                            <div class="vaccine-item completed">
-                                <div class="vaccine-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="vaccine-details">
-                                    <h4>BCG</h4>
-                                    <p>Até aos 30 dias de vida</p>
-                                    <span class="vaccine-status completed">Concluída</span>
-                                </div>
-                            </div>
-                            
-                            <div class="vaccine-item pending">
-                                <div class="vaccine-icon">
-                                    <i class="fas fa-clock"></i>
-                                </div>
-                                <div class="vaccine-details">
-                                    <h4>Hepatite B</h4>
-                                    <p>2, 4 e 6 meses</p>
-                                    <span class="vaccine-status pending">Pendente</span>
-                                </div>
-                            </div>
-                            
-                            <div class="vaccine-item upcoming">
-                                <div class="vaccine-icon">
-                                    <i class="fas fa-calendar"></i>
-                                </div>
-                                <div class="vaccine-details">
-                                    <h4>DTPa/Hib/IPV</h4>
-                                    <p>2, 4 e 6 meses</p>
-                                    <span class="vaccine-status upcoming">Próxima</span>
-                                </div>
-                            </div>
+                        <div class="vaccine-list" id="vaccine-list">
+                            <!-- Vaccines will be loaded dynamically -->
                         </div>
                     </div>
                 </div>
@@ -318,14 +352,14 @@
         <!-- Produtos Farmacêuticos Section -->
         <section id="farmacias" class="section">
             <div class="container">
-                <h2 class="section-title">Produtos Farmacêuticos</h2>
+                <h2 class="section-title">Produtos Essenciais</h2>
                 <div class="products-content">
                     <div class="product-categories">
                         <button class="category-btn active" onclick="showCategory('farmababy')" id="btn-farmababy">
-                            <i class="fas fa-baby"></i> Farmababy
+                            <i class="fas fa-baby"></i> Essenciais para o Bebé
                         </button>
                         <button class="category-btn" onclick="showCategory('farmamama')" id="btn-farmamama">
-                            <i class="fas fa-heart"></i> Farmamama
+                            <i class="fas fa-heart"></i> Essenciais para a Mamã
                         </button>
                     </div>
                     
@@ -346,6 +380,221 @@
                     <!-- Farmamama Products -->
                     <div class="product-list" id="farmamama-list">
                         <!-- Products will be loaded dynamically from JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bem-estar Section -->
+        <section id="bemestar" class="section">
+            <div class="container">
+                <h2 class="section-title">Bem-estar e Conteúdo Pós-Parto</h2>
+                <div class="wellness-content">
+                    <div class="wellness-tabs">
+                        <button class="wellness-tab active" onclick="showWellnessTab('treinos')">Treinos</button>
+                        <button class="wellness-tab" onclick="showWellnessTab('nutricao')">Nutrição</button>
+                        <button class="wellness-tab" onclick="showWellnessTab('artigos')">Artigos Técnicos</button>
+                    </div>
+                    
+                    <div class="wellness-tab-content active" id="treinos-content">
+                        <h3>Treinos Pós-Parto</h3>
+                        <div class="wellness-grid">
+                            <div class="wellness-card">
+                                <i class="fas fa-dumbbell"></i>
+                                <h4>Exercícios de Recuperação</h4>
+                                <p>Exercícios suaves para fortalecer o corpo após o parto</p>
+                            </div>
+                            <div class="wellness-card">
+                                <i class="fas fa-music"></i>
+                                <h4>Zumba Suave</h4>
+                                <p>Aulas de zumba adaptadas para gestantes e pós-parto</p>
+                            </div>
+                            <div class="wellness-card">
+                                <i class="fas fa-heartbeat"></i>
+                                <h4>Cardio Leve</h4>
+                                <p>Atividades cardiovasculares seguras durante e após a gravidez</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="wellness-tab-content" id="nutricao-content">
+                        <h3>Nutrição e Hábitos Alimentares</h3>
+                        <div class="wellness-grid">
+                            <div class="wellness-card">
+                                <i class="fas fa-apple-alt"></i>
+                                <h4>Alimentação na Gravidez</h4>
+                                <p>Dicas de nutrição saudável durante a gestação</p>
+                            </div>
+                            <div class="wellness-card">
+                                <i class="fas fa-seedling"></i>
+                                <h4>Alimentação Pós-Parto</h4>
+                                <p>Hábitos alimentares para recuperação e amamentação</p>
+                            </div>
+                            <div class="wellness-card">
+                                <i class="fas fa-utensils"></i>
+                                <h4>Receitas Saudáveis</h4>
+                                <p>Receitas nutritivas para mães e bebés</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="wellness-tab-content" id="artigos-content">
+                        <h3>Artigos Técnicos e Científicos</h3>
+                        <div class="articles-list">
+                            <div class="article-item">
+                                <h4>Saúde Mental no Pós-Parto</h4>
+                                <p>Artigo sobre depressão pós-parto e como procurar ajuda</p>
+                                <a href="#" class="btn btn-small">Ler Artigo</a>
+                            </div>
+                            <div class="article-item">
+                                <h4>Amamentação: Guia Completo</h4>
+                                <p>Informações científicas sobre amamentação e seus benefícios</p>
+                                <a href="#" class="btn btn-small">Ler Artigo</a>
+                            </div>
+                            <div class="article-item">
+                                <h4>Exercício Físico na Gravidez</h4>
+                                <p>Estudos sobre a importância do exercício durante a gestação</p>
+                                <a href="#" class="btn btn-small">Ler Artigo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lembretes de Medicação Section -->
+        <section id="lembretes" class="section">
+            <div class="container">
+                <h2 class="section-title">Lembretes de Medicação</h2>
+                <div class="medication-reminder">
+                    <button class="btn btn-primary" onclick="openMedicationModal()" style="margin-bottom: 2rem;">
+                        <i class="fas fa-plus"></i> Adicionar Medicação
+                    </button>
+                    <div class="medication-list" id="medication-list">
+                        <!-- Medications will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galeria Section -->
+        <section id="galeria" class="section">
+            <div class="container">
+                <h2 class="section-title">Galeria de Momentos</h2>
+                <div class="gallery-content">
+                    <button class="btn btn-primary" onclick="openGalleryUpload()" style="margin-bottom: 2rem;">
+                        <i class="fas fa-upload"></i> Adicionar Foto ou Vídeo
+                    </button>
+                    <div class="gallery-grid" id="gallery-grid">
+                        <!-- Gallery items will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meditação Section -->
+        <section id="meditacao" class="section">
+            <div class="container">
+                <h2 class="section-title">Meditação e Saúde Mental</h2>
+                <div class="meditation-content">
+                    <div class="meditation-cards">
+                        <div class="meditation-card" onclick="playMeditation('respiração')">
+                            <i class="fas fa-wind"></i>
+                            <h4>Meditação de Respiração</h4>
+                            <p>Exercícios de respiração para reduzir ansiedade</p>
+                        </div>
+                        <div class="meditation-card" onclick="playMeditation('sono')">
+                            <i class="fas fa-moon"></i>
+                            <h4>Meditação para o Sono</h4>
+                            <p>Relaxamento para melhorar a qualidade do sono</p>
+                        </div>
+                        <div class="meditation-card" onclick="playMeditation('stress')">
+                            <i class="fas fa-spa"></i>
+                            <h4>Redução de Stress</h4>
+                            <p>Meditações guiadas para aliviar o stress</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cuidados Section -->
+        <section id="cuidados" class="section">
+            <div class="container">
+                <h2 class="section-title">Cuidados e Precauções</h2>
+                <div class="care-content">
+                    <div class="care-tabs">
+                        <button class="care-tab active" onclick="showCareTab('gestacao')">Durante a Gravidez</button>
+                        <button class="care-tab" onclick="showCareTab('posparto')">Pós-Parto</button>
+                    </div>
+                    
+                    <div class="care-tab-content active" id="gestacao-content">
+                        <h3>O que NÃO fazer durante a Gravidez</h3>
+                        <ul class="care-list">
+                            <li><i class="fas fa-times-circle"></i> Não consumir álcool ou tabaco</li>
+                            <li><i class="fas fa-times-circle"></i> Evitar alimentos crus ou mal cozidos</li>
+                            <li><i class="fas fa-times-circle"></i> Não tomar medicamentos sem prescrição médica</li>
+                            <li><i class="fas fa-times-circle"></i> Evitar exercícios de alto impacto</li>
+                            <li><i class="fas fa-times-circle"></i> Não usar produtos químicos agressivos</li>
+                            <li><i class="fas fa-times-circle"></i> Evitar banhos muito quentes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="care-tab-content" id="posparto-content">
+                        <h3>Dicas para Recuperação Eficaz e Segura</h3>
+                        <ul class="care-list">
+                            <li><i class="fas fa-check-circle"></i> Descansar sempre que possível</li>
+                            <li><i class="fas fa-check-circle"></i> Manter uma alimentação equilibrada</li>
+                            <li><i class="fas fa-check-circle"></i> Beber muita água</li>
+                            <li><i class="fas fa-check-circle"></i> Fazer exercícios suaves de recuperação</li>
+                            <li><i class="fas fa-check-circle"></i> Cuidar da cicatriz (se houver cesariana)</li>
+                            <li><i class="fas fa-check-circle"></i> Procurar ajuda quando necessário</li>
+                            <li><i class="fas fa-check-circle"></i> Não levantar pesos excessivos</li>
+                            <li><i class="fas fa-check-circle"></i> Evitar relações sexuais nas primeiras semanas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teleconsultas Section -->
+        <section id="teleconsultas" class="section">
+            <div class="container">
+                <h2 class="section-title">Teleconsultas</h2>
+                <div class="teleconsultation-content">
+                    <div class="consultation-cards">
+                        <div class="consultation-card" onclick="scheduleTeleconsultation('nutricionista')">
+                            <i class="fas fa-user-md"></i>
+                            <h4>Consulta com Nutricionista</h4>
+                            <p>Agende uma consulta online com nutricionista especializado</p>
+                            <button class="btn btn-primary">Agendar</button>
+                        </div>
+                        <div class="consultation-card" onclick="scheduleTeleconsultation('enfermeiro')">
+                            <i class="fas fa-user-nurse"></i>
+                            <h4>Consulta com Enfermeiro</h4>
+                            <p>Agende uma consulta online com enfermeiro especializado</p>
+                            <button class="btn btn-primary">Agendar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chat IA Section -->
+        <section id="chatia" class="section">
+            <div class="container">
+                <h2 class="section-title">Assistente Virtual</h2>
+                <div class="ai-chat-container">
+                    <div class="ai-chat-messages" id="ai-chat-messages">
+                        <div class="ai-message received">
+                            <p>Olá! Sou o assistente virtual do Mammi. Como posso ajudá-la hoje? Pode fazer-me qualquer pergunta sobre gravidez, pós-parto ou cuidados com o bebé.</p>
+                        </div>
+                    </div>
+                    <div class="ai-chat-input">
+                        <input type="text" id="ai-message-input" placeholder="Escreva a sua pergunta...">
+                        <button onclick="sendAIMessage()">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -385,6 +634,141 @@
         </div>
     </div>
 
+    <!-- Vaccine Details Modal -->
+    <div id="vaccine-details-modal" class="modal" onclick="closeVaccineDetails()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3 id="modal-vaccine-title">Vacina</h3>
+                <button class="close-btn" onclick="closeVaccineDetails()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-vaccine-content">
+                <!-- Vaccine details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Vaccine Schedule Modal -->
+    <div id="vaccine-schedule-modal" class="modal" onclick="closeVaccineSchedule()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3>Agendar Vacina</h3>
+                <button class="close-btn" onclick="closeVaccineSchedule()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="event.preventDefault(); scheduleVaccine();">
+                    <div style="margin-bottom: 1rem;">
+                        <label for="schedule-vaccine-name"><strong>Vacina:</strong></label>
+                        <input type="text" id="schedule-vaccine-name" placeholder="Nome da vacina" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; margin-top: 0.5rem;">
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label for="schedule-date"><strong>Data:</strong></label>
+                        <input type="date" id="schedule-date" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; margin-top: 0.5rem;">
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label for="schedule-time"><strong>Hora:</strong></label>
+                        <input type="time" id="schedule-time" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; margin-top: 0.5rem;">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-calendar-check"></i> Confirmar Agendamento
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Medication Modal -->
+    <div id="medication-modal" class="modal" onclick="closeMedicationModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3>Adicionar Medicação</h3>
+                <button class="close-btn" onclick="closeMedicationModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="event.preventDefault(); addMedication();">
+                    <div style="margin-bottom: 1rem;">
+                        <label for="med-name"><strong>Nome da Medicação:</strong></label>
+                        <input type="text" id="med-name" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; margin-top: 0.5rem;">
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label for="med-time"><strong>Hora:</strong></label>
+                        <input type="time" id="med-time" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; margin-top: 0.5rem;">
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label for="med-frequency"><strong>Frequência:</strong></label>
+                        <select id="med-frequency" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; margin-top: 0.5rem;">
+                            <option value="diario">Diário</option>
+                            <option value="semanal">Semanal</option>
+                            <option value="quando-necessario">Quando necessário</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-save"></i> Guardar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Upload Modal -->
+    <div id="gallery-upload-modal" class="modal" onclick="closeGalleryUpload()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3>Adicionar Foto ou Vídeo</h3>
+                <button class="close-btn" onclick="closeGalleryUpload()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="event.preventDefault(); uploadToGallery();">
+                    <div style="margin-bottom: 1rem;">
+                        <label for="gallery-file"><strong>Selecionar Ficheiro:</strong></label>
+                        <input type="file" id="gallery-file" accept="image/*,video/*" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; margin-top: 0.5rem;">
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label for="gallery-description"><strong>Descrição:</strong></label>
+                        <textarea id="gallery-description" placeholder="Descreva este momento especial..." style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; margin-top: 0.5rem; min-height: 100px;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-upload"></i> Carregar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Teleconsultation Modal -->
+    <div id="teleconsultation-modal" class="modal" onclick="closeTeleconsultation()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3 id="teleconsultation-title">Agendar Teleconsulta</h3>
+                <button class="close-btn" onclick="closeTeleconsultation()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="event.preventDefault(); confirmTeleconsultation();">
+                    <div style="margin-bottom: 1rem;">
+                        <label for="tele-date"><strong>Data:</strong></label>
+                        <input type="date" id="tele-date" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; margin-top: 0.5rem;">
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label for="tele-time"><strong>Hora:</strong></label>
+                        <input type="time" id="tele-time" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; margin-top: 0.5rem;">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-calendar-check"></i> Confirmar Agendamento
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -401,9 +785,9 @@
                 <div class="footer-section">
                     <h4>Redes Sociais</h4>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/mammi" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>

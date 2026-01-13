@@ -4,6 +4,115 @@ let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 let chatMessages = [];
 let currentChat = 'general';
+let isDropdownToggling = false;
+
+// Vaccine data with detailed information
+const vaccines = [
+    {
+        id: 'hepatite-b-nascimento',
+        name: 'Hepatite B',
+        age: 'Nascimento',
+        doses: '1ª dose',
+        description: 'A vacina contra a Hepatite B é essencial para prevenir a infecção pelo vírus, sendo segura e eficaz, e está disponível gratuitamente no SUS para todas as idades; o esquema para crianças envolve 4 doses (ao nascer, 2, 4 e 6 meses)',
+        status: 'completed'
+    },
+    {
+        id: 'hexavalente-2m',
+        name: 'Hexavalente (DTPa, Hib, VIP, VHB)',
+        age: '2 Meses',
+        doses: '1ª dose + 2ª dose VHB',
+        description: 'Combina várias vacinas em uma só, diminuindo dor e estresse para a criança/bebé',
+        status: 'pending'
+    },
+    {
+        id: 'pneumococica-2m',
+        name: 'Pneumocócica (Pn20/Pn13)',
+        age: '2 Meses',
+        doses: '1ª dose',
+        description: 'A vacina pneumocócica protege contra infecções graves causadas pela bactéria Streptococcus pneumoniae, como pneumonia, meningite, otite média e infecções sanguíneas (bacteremia)',
+        status: 'pending'
+    },
+    {
+        id: 'meningococica-b-2m',
+        name: 'Meningocócica B (MenB)',
+        age: '2 Meses',
+        doses: '1ª dose',
+        description: 'A vacina meningocócica protege contra a meningite e outras infecções graves',
+        status: 'pending'
+    },
+    {
+        id: 'pentavalente-4m',
+        name: 'Pentavalente (DTPa, Hib, VIP)',
+        age: '4 Meses',
+        doses: '2ª dose',
+        description: 'A vacina Pentavalente protege contra cinco doenças graves em bebés e crianças: Difteria, Tétano, Coqueluche',
+        status: 'upcoming'
+    },
+    {
+        id: 'pneumococica-4m',
+        name: 'Pneumocócica (Pn20/Pn13)',
+        age: '4 Meses',
+        doses: '2ª dose',
+        description: 'A vacina pneumocócica protege contra infecções graves causadas pela bactéria Streptococcus pneumoniae',
+        status: 'upcoming'
+    },
+    {
+        id: 'meningococica-b-4m',
+        name: 'Meningocócica B (MenB)',
+        age: '4 Meses',
+        doses: '2ª dose',
+        description: 'A vacina meningocócica protege contra a meningite e outras infecções graves',
+        status: 'upcoming'
+    },
+    {
+        id: 'hexavalente-6m',
+        name: 'Hexavalente (DTPa, Hib, VIP, VHB)',
+        age: '6 Meses',
+        doses: '3ª dose',
+        description: 'Combina várias vacinas em uma só, diminuindo dor e estresse para a criança/bebé',
+        status: 'upcoming'
+    },
+    {
+        id: 'pneumococica-12m',
+        name: 'Pneumocócica (Pn20/Pn13)',
+        age: '12 Meses',
+        doses: '3ª dose',
+        description: 'A vacina pneumocócica protege contra infecções graves causadas pela bactéria Streptococcus pneumoniae',
+        status: 'upcoming'
+    },
+    {
+        id: 'meningococica-c-12m',
+        name: 'Meningocócica C (MenC)',
+        age: '12 Meses',
+        doses: 'Dose única ou reforço',
+        description: 'A vacina meningocócica C protege contra a meningite tipo C',
+        status: 'upcoming'
+    },
+    {
+        id: 'meningococica-b-12m',
+        name: 'Meningocócica B (MenB)',
+        age: '12 Meses',
+        doses: '3ª dose',
+        description: 'A vacina meningocócica protege contra a meningite e outras infecções graves',
+        status: 'upcoming'
+    },
+    {
+        id: 'vaspr-12m',
+        name: 'VASPR (Sarampo, Papeira, Rubéola)',
+        age: '12 Meses',
+        doses: '1ª dose',
+        description: 'Protege contra sarampo, papeira e rubéola',
+        status: 'upcoming'
+    },
+    {
+        id: 'pentavalente-18m',
+        name: 'Pentavalente (DTPa, Hib, VIP)',
+        age: '18 Meses',
+        doses: '4ª dose',
+        description: 'A vacina Pentavalente protege contra cinco doenças graves em bebés e crianças',
+        status: 'upcoming'
+    }
+];
 
 // Product data extracted from filenames
 const farmamamaProducts = [
@@ -185,6 +294,8 @@ const farmababyProducts = [
 const tutorials = {
     banho: {
         title: 'Como Dar Banho ao Bebé',
+        icon: 'fa-shower',
+        duration: '5 min',
         content: `
             <div class="tutorial-steps">
                 <h4>Passo a Passo para o Banho do Bebé</h4>
@@ -221,6 +332,8 @@ const tutorials = {
     },
     cordao: {
         title: 'Cuidados com o Cordão Umbilical',
+        icon: 'fa-band-aid',
+        duration: '3 min',
         content: `
             <div class="tutorial-steps">
                 <h4>Cuidados Essenciais com o Cordão Umbilical</h4>
@@ -254,6 +367,8 @@ const tutorials = {
     },
     leite: {
         title: 'Temperatura do Leite',
+        icon: 'fa-baby-bottle',
+        duration: '2 min',
         content: `
             <div class="tutorial-steps">
                 <h4>Como Preparar o Leite na Temperatura Ideal</h4>
@@ -290,6 +405,8 @@ const tutorials = {
     },
     mala: {
         title: 'Mala da Maternidade',
+        icon: 'fa-suitcase',
+        duration: '4 min',
         content: `
             <div class="tutorial-steps">
                 <h4>Lista Completa para a Mala da Maternidade</h4>
@@ -328,6 +445,8 @@ const tutorials = {
     },
     alimentacao: {
         title: 'Introdução Alimentar (6+ meses)',
+        icon: 'fa-apple-alt',
+        duration: '6 min',
         content: `
             <div class="tutorial-steps">
                 <h4>Como Introduzir Sólidos na Alimentação do Bebé</h4>
@@ -366,6 +485,8 @@ const tutorials = {
     },
     sono: {
         title: 'Sono do Bebé',
+        icon: 'fa-moon',
+        duration: '5 min',
         content: `
             <div class="tutorial-steps">
                 <h4>Dicas para Estabelecer uma Rotina de Sono Saudável</h4>
@@ -437,13 +558,15 @@ function initializeApp() {
 }
 
 function setupEventListeners() {
-    // Navigation
-    const navLinks = document.querySelectorAll('.nav-link');
+    // Navigation (only for non-dropdown links - dropdowns use onclick in HTML)
+    const navLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const section = link.getAttribute('href').substring(1);
-            showSection(section);
+            if (section) {
+                showSection(section);
+            }
         });
     });
 
@@ -484,6 +607,69 @@ function setupEventListeners() {
     }
 }
 
+// Toggle dropdown menu
+function toggleDropdown(event, element) {
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+    }
+    
+    const dropdown = element.closest('.nav-dropdown');
+    if (!dropdown) {
+        return false;
+    }
+    
+    const allDropdowns = document.querySelectorAll('.nav-dropdown');
+    const isCurrentlyActive = dropdown.classList.contains('active');
+    
+    // Close all other dropdowns first
+    allDropdowns.forEach(dd => {
+        if (dd !== dropdown) {
+            dd.classList.remove('active');
+        }
+    });
+    
+    // Toggle current dropdown
+    if (isCurrentlyActive) {
+        dropdown.classList.remove('active');
+    } else {
+        dropdown.classList.add('active');
+    }
+    
+    return false;
+}
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', function(event) {
+    // Check if click is on a dropdown toggle
+    const clickedToggle = event.target.closest('.dropdown-toggle');
+    if (clickedToggle) {
+        // Don't close - toggleDropdown will handle it
+        return;
+    }
+    
+    // Check if click is inside a dropdown menu
+    const clickedMenu = event.target.closest('.dropdown-menu');
+    if (clickedMenu) {
+        // Don't close if clicking inside the menu
+        return;
+    }
+    
+    // Check if click is inside any dropdown container (for mobile)
+    const clickedDropdown = event.target.closest('.nav-dropdown');
+    if (clickedDropdown) {
+        // Don't close if clicking inside dropdown container
+        return;
+    }
+    
+    // Close all dropdowns if clicking outside
+    const allDropdowns = document.querySelectorAll('.nav-dropdown');
+    allDropdowns.forEach(dd => {
+        dd.classList.remove('active');
+    });
+});
+
 function showSection(sectionId) {
     // Hide all sections
     const sections = document.querySelectorAll('.section');
@@ -496,16 +682,37 @@ function showSection(sectionId) {
     if (targetSection) {
         targetSection.classList.add('active');
         currentSection = sectionId;
+        
+        // Scroll to top of the page (main has margin-top for header)
+        setTimeout(() => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }, 50);
     }
 
-    // Update navigation
-    const navLinks = document.querySelectorAll('.nav-link');
+    // Close all dropdowns
+    const allDropdowns = document.querySelectorAll('.nav-dropdown');
+    allDropdowns.forEach(dd => {
+        dd.classList.remove('active');
+    });
+    
+    // Update navigation (including dropdown links)
+    const navLinks = document.querySelectorAll('.nav-link, .dropdown-link');
     navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href') === `#${sectionId}`) {
+        const href = link.getAttribute('href');
+        if (href === `#${sectionId}`) {
             link.classList.add('active');
         }
     });
+    
+    // Close mobile menu if open
+    const nav = document.querySelector('.nav');
+    if (nav && nav.classList.contains('active')) {
+        toggleMobileMenu();
+    }
 
     // Close mobile menu if open
     closeMobileMenu();
@@ -562,19 +769,27 @@ function openTutorial(tutorialId) {
     const tutorial = tutorials[tutorialId];
     if (!tutorial) return;
 
-    const modal = document.getElementById('tutorial-modal');
-    const title = document.getElementById('tutorial-title');
-    const content = document.getElementById('tutorial-content');
+    // Update tutorial view content
+    const titleElement = document.getElementById('tutorial-view-title');
+    const contentElement = document.getElementById('tutorial-view-content');
+    const iconElement = document.getElementById('tutorial-view-icon');
+    const durationElement = document.getElementById('tutorial-view-duration');
 
-    title.textContent = tutorial.title;
-    content.innerHTML = tutorial.content;
+    if (titleElement) titleElement.textContent = tutorial.title;
+    if (contentElement) contentElement.innerHTML = tutorial.content;
+    if (iconElement && tutorial.icon) {
+        iconElement.className = `fas ${tutorial.icon}`;
+    }
+    if (durationElement && tutorial.duration) {
+        durationElement.textContent = tutorial.duration;
+    }
 
-    modal.classList.add('active');
+    // Show tutorial view section and hide tutorials list
+    showSection('tutorial-view');
 }
 
-function closeTutorial() {
-    const modal = document.getElementById('tutorial-modal');
-    modal.classList.remove('active');
+function backToTutorials() {
+    showSection('tutoriais');
 }
 
 // Vaccine Calendar Functions
@@ -588,6 +803,102 @@ function updateVaccineCalendar() {
     if (currentMonthElement) {
         currentMonthElement.textContent = `${monthNames[currentMonth]} ${currentYear}`;
     }
+    
+    // Render vaccines
+    renderVaccines();
+}
+
+function renderVaccines() {
+    const vaccineList = document.getElementById('vaccine-list');
+    if (!vaccineList) return;
+    
+    vaccineList.innerHTML = '';
+    
+    vaccines.forEach(vaccine => {
+        const vaccineElement = document.createElement('div');
+        vaccineElement.className = `vaccine-item ${vaccine.status}`;
+        vaccineElement.onclick = () => openVaccineDetails(vaccine);
+        
+        const iconClass = vaccine.status === 'completed' ? 'fa-check-circle' : 
+                         vaccine.status === 'pending' ? 'fa-clock' : 'fa-calendar';
+        
+        vaccineElement.innerHTML = `
+            <div class="vaccine-icon">
+                <i class="fas ${iconClass}"></i>
+            </div>
+            <div class="vaccine-details">
+                <h4>${vaccine.name}</h4>
+                <p><strong>Idade:</strong> ${vaccine.age} - ${vaccine.doses}</p>
+                <p class="vaccine-description">${vaccine.description}</p>
+                <span class="vaccine-status ${vaccine.status}">${
+                    vaccine.status === 'completed' ? 'Concluída' : 
+                    vaccine.status === 'pending' ? 'Pendente' : 'Próxima'
+                }</span>
+            </div>
+        `;
+        
+        vaccineList.appendChild(vaccineElement);
+    });
+}
+
+function openVaccineDetails(vaccine) {
+    const modal = document.getElementById('vaccine-details-modal');
+    const modalTitle = document.getElementById('modal-vaccine-title');
+    const modalContent = document.getElementById('modal-vaccine-content');
+    
+    if (modal && modalTitle && modalContent) {
+        modalTitle.textContent = vaccine.name;
+        modalContent.innerHTML = `
+            <p><strong>Idade:</strong> ${vaccine.age}</p>
+            <p><strong>Dose:</strong> ${vaccine.doses}</p>
+            <p><strong>Descrição:</strong> ${vaccine.description}</p>
+            <button class="btn btn-primary" onclick="openVaccineSchedule('${vaccine.id}')" style="margin-top: 1rem; width: 100%;">
+                <i class="fas fa-calendar-plus"></i> Agendar Esta Vacina
+            </button>
+        `;
+        modal.classList.add('active');
+    }
+}
+
+function openVaccineSchedule(vaccineId = null) {
+    const modal = document.getElementById('vaccine-schedule-modal');
+    if (modal) {
+        if (vaccineId) {
+            const vaccine = vaccines.find(v => v.id === vaccineId);
+            if (vaccine) {
+                document.getElementById('schedule-vaccine-name').value = vaccine.name;
+            }
+        }
+        modal.classList.add('active');
+    }
+}
+
+function closeVaccineSchedule() {
+    const modal = document.getElementById('vaccine-schedule-modal');
+    if (modal) {
+        modal.classList.remove('active');
+    }
+}
+
+function closeVaccineDetails() {
+    const modal = document.getElementById('vaccine-details-modal');
+    if (modal) {
+        modal.classList.remove('active');
+    }
+}
+
+function scheduleVaccine() {
+    const vaccineName = document.getElementById('schedule-vaccine-name').value;
+    const date = document.getElementById('schedule-date').value;
+    const time = document.getElementById('schedule-time').value;
+    
+    if (!vaccineName || !date || !time) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+    }
+    
+    alert(`Vacina "${vaccineName}" agendada para ${date} às ${time}`);
+    closeVaccineSchedule();
 }
 
 function changeMonth(direction) {
@@ -920,11 +1231,307 @@ function closeProductModal() {
     }
 }
 
+// Motivational phrases
+const motivationalPhrases = [
+    "Você é mais forte do que imagina! 💪",
+    "Cada dia é uma nova conquista na sua jornada de mãe! 🌟",
+    "Você está a fazer um trabalho incrível! ❤️",
+    "Lembre-se: cuidar de si é também cuidar do seu bebé! 💕",
+    "A maternidade é uma aventura única e especial! 🌈",
+    "Você não está sozinha nesta jornada! 🤗",
+    "Cada pequeno passo é uma grande vitória! 🎉",
+    "Acredite no seu instinto materno! ✨"
+];
+
+// Show motivational phrase on page load
+function showMotivationalPhrase() {
+    const phrase = motivationalPhrases[Math.floor(Math.random() * motivationalPhrases.length)];
+    // Create a toast notification
+    const toast = document.createElement('div');
+    toast.className = 'motivational-toast';
+    toast.textContent = phrase;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.classList.add('show');
+    }, 100);
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 4000);
+}
+
+// Wellness Functions
+function showWellnessTab(tab) {
+    const tabs = document.querySelectorAll('.wellness-tab');
+    const contents = document.querySelectorAll('.wellness-tab-content');
+    
+    tabs.forEach(t => t.classList.remove('active'));
+    contents.forEach(c => c.classList.remove('active'));
+    
+    document.querySelector(`.wellness-tab[onclick="showWellnessTab('${tab}')"]`)?.classList.add('active');
+    document.getElementById(`${tab}-content`)?.classList.add('active');
+}
+
+// Medication Functions
+let medications = [];
+
+function openMedicationModal() {
+    document.getElementById('medication-modal').classList.add('active');
+}
+
+function closeMedicationModal() {
+    document.getElementById('medication-modal').classList.remove('active');
+}
+
+function addMedication() {
+    const name = document.getElementById('med-name').value;
+    const time = document.getElementById('med-time').value;
+    const frequency = document.getElementById('med-frequency').value;
+    
+    const medication = {
+        id: Date.now(),
+        name,
+        time,
+        frequency
+    };
+    
+    medications.push(medication);
+    renderMedications();
+    closeMedicationModal();
+    
+    // Clear form
+    document.getElementById('med-name').value = '';
+    document.getElementById('med-time').value = '';
+    document.getElementById('med-frequency').value = 'diario';
+}
+
+function renderMedications() {
+    const list = document.getElementById('medication-list');
+    if (!list) return;
+    
+    list.innerHTML = '';
+    
+    if (medications.length === 0) {
+        list.innerHTML = '<p style="text-align: center; color: var(--text-light);">Nenhuma medicação adicionada ainda.</p>';
+        return;
+    }
+    
+    medications.forEach(med => {
+        const item = document.createElement('div');
+        item.className = 'medication-item';
+        item.innerHTML = `
+            <div class="medication-info">
+                <h4>${med.name}</h4>
+                <p><i class="fas fa-clock"></i> ${med.time}</p>
+                <p><i class="fas fa-sync"></i> ${med.frequency === 'diario' ? 'Diário' : med.frequency === 'semanal' ? 'Semanal' : 'Quando necessário'}</p>
+            </div>
+            <button class="btn btn-small" onclick="deleteMedication(${med.id})">
+                <i class="fas fa-trash"></i>
+            </button>
+        `;
+        list.appendChild(item);
+    });
+}
+
+function deleteMedication(id) {
+    medications = medications.filter(m => m.id !== id);
+    renderMedications();
+}
+
+// Gallery Functions
+let galleryItems = [];
+
+function openGalleryUpload() {
+    document.getElementById('gallery-upload-modal').classList.add('active');
+}
+
+function closeGalleryUpload() {
+    document.getElementById('gallery-upload-modal').classList.remove('active');
+}
+
+function uploadToGallery() {
+    const file = document.getElementById('gallery-file').files[0];
+    const description = document.getElementById('gallery-description').value;
+    
+    if (!file) return;
+    
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const item = {
+            id: Date.now(),
+            src: e.target.result,
+            description: description || 'Momento especial',
+            type: file.type.startsWith('video/') ? 'video' : 'image'
+        };
+        
+        galleryItems.push(item);
+        renderGallery();
+        closeGalleryUpload();
+        
+        // Clear form
+        document.getElementById('gallery-file').value = '';
+        document.getElementById('gallery-description').value = '';
+    };
+    reader.readAsDataURL(file);
+}
+
+function renderGallery() {
+    const grid = document.getElementById('gallery-grid');
+    if (!grid) return;
+    
+    grid.innerHTML = '';
+    
+    if (galleryItems.length === 0) {
+        grid.innerHTML = '<p style="text-align: center; color: var(--text-light); grid-column: 1/-1;">Ainda não há fotos ou vídeos na galeria.</p>';
+        return;
+    }
+    
+    galleryItems.forEach(item => {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = 'gallery-item';
+        
+        if (item.type === 'video') {
+            galleryItem.innerHTML = `
+                <video src="${item.src}" controls></video>
+                <p>${item.description}</p>
+            `;
+        } else {
+            galleryItem.innerHTML = `
+                <img src="${item.src}" alt="${item.description}">
+                <p>${item.description}</p>
+            `;
+        }
+        
+        grid.appendChild(galleryItem);
+    });
+}
+
+// Meditation Functions
+function playMeditation(type) {
+    alert(`A iniciar meditação: ${type}\n\nEsta funcionalidade será implementada em breve com áudio guiado.`);
+}
+
+// Care Functions
+function showCareTab(tab) {
+    const tabs = document.querySelectorAll('.care-tab');
+    const contents = document.querySelectorAll('.care-tab-content');
+    
+    tabs.forEach(t => t.classList.remove('active'));
+    contents.forEach(c => c.classList.remove('active'));
+    
+    document.querySelector(`.care-tab[onclick="showCareTab('${tab}')"]`)?.classList.add('active');
+    document.getElementById(`${tab}-content`)?.classList.add('active');
+}
+
+// Teleconsultation Functions
+let currentTeleconsultationType = '';
+
+function scheduleTeleconsultation(type) {
+    currentTeleconsultationType = type;
+    const modal = document.getElementById('teleconsultation-modal');
+    const title = document.getElementById('teleconsultation-title');
+    
+    if (title) {
+        title.textContent = `Agendar Consulta com ${type === 'nutricionista' ? 'Nutricionista' : 'Enfermeiro'}`;
+    }
+    
+    if (modal) {
+        modal.classList.add('active');
+    }
+}
+
+function closeTeleconsultation() {
+    document.getElementById('teleconsultation-modal').classList.remove('active');
+}
+
+function confirmTeleconsultation() {
+    const date = document.getElementById('tele-date').value;
+    const time = document.getElementById('tele-time').value;
+    
+    if (!date || !time) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+    }
+    
+    const type = currentTeleconsultationType === 'nutricionista' ? 'Nutricionista' : 'Enfermeiro';
+    alert(`Consulta com ${type} agendada para ${date} às ${time}`);
+    closeTeleconsultation();
+}
+
+// AI Chat Functions
+function sendAIMessage() {
+    const input = document.getElementById('ai-message-input');
+    const message = input.value.trim();
+    
+    if (!message) return;
+    
+    const messagesContainer = document.getElementById('ai-chat-messages');
+    
+    // Add user message
+    const userMsg = document.createElement('div');
+    userMsg.className = 'ai-message sent';
+    userMsg.innerHTML = `<p>${message}</p>`;
+    messagesContainer.appendChild(userMsg);
+    
+    input.value = '';
+    
+    // Simulate AI response
+    setTimeout(() => {
+        const aiMsg = document.createElement('div');
+        aiMsg.className = 'ai-message received';
+        aiMsg.innerHTML = `<p>${getAIResponse(message)}</p>`;
+        messagesContainer.appendChild(aiMsg);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }, 1000);
+}
+
+function getAIResponse(message) {
+    const lowerMessage = message.toLowerCase();
+    
+    if (lowerMessage.includes('banho') || lowerMessage.includes('banhar')) {
+        return 'Para dar banho ao bebé, use água a 36-37°C. Tenha tudo preparado antes de começar e nunca deixe o bebé sozinho. O banho deve durar 5-10 minutos.';
+    } else if (lowerMessage.includes('leite') || lowerMessage.includes('alimentação')) {
+        return 'O leite materno é o melhor alimento para o bebé. Se usar leite em pó, prepare-o a 37-40°C e teste sempre a temperatura no pulso antes de dar ao bebé.';
+    } else if (lowerMessage.includes('sono') || lowerMessage.includes('dormir')) {
+        return 'Os recém-nascidos dormem entre 14-17 horas por dia, mas em períodos curtos. Estabeleça uma rotina e coloque o bebé sempre de costas no berço.';
+    } else if (lowerMessage.includes('vacina')) {
+        return 'As vacinas são essenciais para proteger o seu bebé. Siga o calendário de vacinação recomendado pelo pediatra.';
+    } else if (lowerMessage.includes('ansiedade') || lowerMessage.includes('stress')) {
+        return 'É normal sentir ansiedade. Tente técnicas de respiração, meditação ou procure apoio psicológico se necessário.';
+    } else {
+        return 'Obrigada pela sua pergunta. Para informações mais específicas, recomendo que consulte o pediatra ou enfermeiro. Posso ajudá-la com dicas gerais sobre cuidados com o bebé e bem-estar.';
+    }
+}
+
 // Initialize products on page load
 document.addEventListener('DOMContentLoaded', function() {
+    // Show motivational phrase
+    showMotivationalPhrase();
+    
     // Render Farmababy products (default)
     renderFarmababyProducts();
     
+    // Render vaccines
+    renderVaccines();
+    
+    // Render medications
+    renderMedications();
+    
+    // Render gallery
+    renderGallery();
+    
     // Ensure Farmababy is shown by default
     showCategory('farmababy');
+    
+    // AI Chat enter key
+    const aiInput = document.getElementById('ai-message-input');
+    if (aiInput) {
+        aiInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendAIMessage();
+            }
+        });
+    }
 });
