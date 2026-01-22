@@ -39,6 +39,8 @@
                             Cuidados com o Bebé <i class="fas fa-chevron-down"></i>
                         </a>
                         <ul class="dropdown-menu">
+                            <li><a href="#perfil-bebe" class="dropdown-link" onclick="showSection('perfil-bebe'); return false;">Perfil do Bebé</a></li>
+                            <li><a href="#cuidados-bebe" class="dropdown-link" onclick="showSection('cuidados-bebe'); return false;">Guia de Cuidados</a></li>
                             <li><a href="#tutoriais" class="dropdown-link" onclick="showSection('tutoriais'); return false;">Tutoriais</a></li>
                             <li><a href="#vacinas" class="dropdown-link" onclick="showSection('vacinas'); return false;">Vacinas</a></li>
                             <li><a href="#essenciais-bebe" class="dropdown-link" onclick="showSection('essenciais-bebe'); return false;">Essenciais do Bebé</a></li>
@@ -52,7 +54,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="#chat" class="dropdown-link" onclick="showSection('chat'); return false;">Chat entre Mães</a></li>
-                            <li><a href="#apoio" class="dropdown-link" onclick="showSection('apoio'); return false;">Apoio Psicológico</a></li>
+                            <li><a href="#apoio" class="dropdown-link" onclick="showSection('apoio'); return false;">Agendar Consultas Online</a></li>
                             <li><a href="#nutricionista" class="dropdown-link" onclick="showSection('nutricionista'); return false;">Nutricionista</a></li>
                         </ul>
                     </li>
@@ -108,14 +110,310 @@
                     <p>Tutoriais práticos para os primeiros cuidados</p>
                 </div>
                 <div class="card" onclick="showSection('apoio')">
-                    <i class="fas fa-heart"></i>
-                    <h3>Apoio Psicológico</h3>
-                    <p>Suporte emocional durante esta jornada</p>
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Agendar Consultas Online</h3>
+                    <p>Agende consultas com profissionais qualificados</p>
                 </div>
                 <div class="card" onclick="showSection('farmacias')">
                     <i class="fas fa-pills"></i>
                     <h3>Produtos Essenciais</h3>
                     <p>Essenciais para a mamã e para o bebé</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Perfil do Bebé Section -->
+        <section id="perfil-bebe" class="section">
+            <div class="container">
+                <h2 class="section-title">Perfil do Bebé</h2>
+                <div class="baby-profile-content">
+                    <div id="baby-profile-info" class="baby-profile-card">
+                        <!-- Content will be loaded dynamically -->
+                    </div>
+                    <button class="btn btn-primary" onclick="openBabyDataModal()" style="margin-top: 1.5rem;">
+                        <i class="fas fa-edit"></i> Editar Dados do Bebé
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guia de Cuidados ao Recém-Nascido Section -->
+        <section id="cuidados-bebe" class="section">
+            <div class="container">
+                <h2 class="section-title">Guia Essencial de Cuidados ao Recém-Nascido</h2>
+                <div class="care-guide-content">
+                    <!-- 1. Amamentação -->
+                    <div class="care-guide-item">
+                        <div class="care-guide-header">
+                            <span class="care-guide-number">1</span>
+                            <h3>Amamentação</h3>
+                        </div>
+                        <div class="care-guide-body">
+                            <p>O leite materno é o melhor alimento para o bebé, pois adapta-se às suas necessidades em cada fase do crescimento. Protege contra infeções, obesidade e diabetes, entre outras doenças.</p>
+                            <p>Para a mãe, amamentar ajuda na recuperação do peso, reduz o risco de cancro da mama e do ovário e protege contra a osteoporose.</p>
+                            
+                            <h4>Sinais precoces de fome:</h4>
+                            <ul>
+                                <li>Agitação</li>
+                                <li>Ruídos</li>
+                                <li>Movimentos da cabeça e da boca à procura da mama</li>
+                                <li><strong>Nota:</strong> Chorar é um sinal tardio</li>
+                            </ul>
+                            
+                            <h4>Boa pega:</h4>
+                            <ul>
+                                <li>Bebé bem encostado à mãe, barriga com barriga</li>
+                                <li>Nariz e lábio superior alinhados com o mamilo</li>
+                                <li>Boca bem aberta</li>
+                            </ul>
+                            
+                            <h4>Sinais de ingestão suficiente:</h4>
+                            <ul>
+                                <li>Mama 8–12 vezes por dia</li>
+                                <li>Ouvem-se deglutições</li>
+                                <li>Fica satisfeito após a mamada</li>
+                                <li>Urina e evacua várias vezes por dia</li>
+                                <li>Aumenta adequadamente de peso</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 2. Conservação do Leite Materno -->
+                    <div class="care-guide-item">
+                        <div class="care-guide-header">
+                            <span class="care-guide-number">2</span>
+                            <h3>Conservação do Leite Materno</h3>
+                        </div>
+                        <div class="care-guide-body">
+                            <div class="storage-table">
+                                <div class="storage-row">
+                                    <div class="storage-condition">À temperatura ambiente (&lt;25 ºC)</div>
+                                    <div class="storage-duration">6–8 horas</div>
+                                </div>
+                                <div class="storage-row">
+                                    <div class="storage-condition">Frigorífico (0–4 ºC)</div>
+                                    <div class="storage-duration">até 8 dias</div>
+                                </div>
+                                <div class="storage-row">
+                                    <div class="storage-condition">Congelador separado</div>
+                                    <div class="storage-duration">3–6 meses</div>
+                                </div>
+                                <div class="storage-row">
+                                    <div class="storage-condition">Arca congeladora (&lt;-19 ºC)</div>
+                                    <div class="storage-duration">mais de 6 meses</div>
+                                </div>
+                            </div>
+                            
+                            <h4>Regras importantes:</h4>
+                            <ul>
+                                <li>Nunca juntar leite morno a leite frio ou congelado</li>
+                                <li>Identificar sempre com data</li>
+                                <li>Não usar micro-ondas</li>
+                                <li>Após descongelar, consumir em 24 horas e não voltar a congelar</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 3. Higiene do Bebé -->
+                    <div class="care-guide-item">
+                        <div class="care-guide-header">
+                            <span class="care-guide-number">3</span>
+                            <h3>Higiene do Bebé</h3>
+                        </div>
+                        <div class="care-guide-body">
+                            <div class="hygiene-list">
+                                <div class="hygiene-item">
+                                    <h4><i class="fas fa-eye"></i> Olhos</h4>
+                                    <p>Limpar com compressa esterilizada e soro fisiológico (uma compressa por olho)</p>
+                                </div>
+                                <div class="hygiene-item">
+                                    <h4><i class="fas fa-wind"></i> Nariz</h4>
+                                    <p>Limpeza superficial; lavagem nasal com soro se necessário</p>
+                                </div>
+                                <div class="hygiene-item">
+                                    <h4><i class="fas fa-headphones"></i> Ouvidos</h4>
+                                    <p>Não usar cotonetes; limpar apenas a parte externa</p>
+                                </div>
+                                <div class="hygiene-item">
+                                    <h4><i class="fas fa-band-aid"></i> Umbigo</h4>
+                                    <p>Manter limpo e seco; cai geralmente entre o 8.º e o 10.º dia</p>
+                                </div>
+                                <div class="hygiene-item">
+                                    <h4><i class="fas fa-baby"></i> Genitais</h4>
+                                    <p><strong>Rapaz:</strong> lavar externamente, sem puxar o prepúcio<br>
+                                    <strong>Rapariga:</strong> lavar sempre de frente para trás</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Muda da Fralda -->
+                    <div class="care-guide-item">
+                        <div class="care-guide-header">
+                            <span class="care-guide-number">4</span>
+                            <h3>Muda da Fralda</h3>
+                        </div>
+                        <div class="care-guide-body">
+                            <ul>
+                                <li>Mudar frequentemente, após cada refeição e sempre que haja dejeção</li>
+                                <li>Evitar toalhitas com álcool</li>
+                                <li>Usar creme barreira apenas se houver vermelhidão</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 5. Cuidados com a Pele -->
+                    <div class="care-guide-item">
+                        <div class="care-guide-header">
+                            <span class="care-guide-number">5</span>
+                            <h3>Cuidados com a Pele</h3>
+                        </div>
+                        <div class="care-guide-body">
+                            <p>A pele do recém-nascido é mais seca. Recomenda-se o uso diário de emolientes, especialmente após o banho.</p>
+                            <p>Evitar produtos com perfume, detergentes agressivos ou substâncias irritantes.</p>
+                        </div>
+                    </div>
+
+                    <!-- 6. Vestuário -->
+                    <div class="care-guide-item">
+                        <div class="care-guide-header">
+                            <span class="care-guide-number">6</span>
+                            <h3>Vestuário</h3>
+                        </div>
+                        <div class="care-guide-body">
+                            <ul>
+                                <li>Roupa confortável, preferencialmente de algodão</li>
+                                <li>Lavar separadamente com detergente hipoalergénico, sem amaciador</li>
+                                <li>O bebé deve vestir, em geral, tantas camadas como um adulto mais friorento</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 7. Calçado -->
+                    <div class="care-guide-item">
+                        <div class="care-guide-header">
+                            <span class="care-guide-number">7</span>
+                            <h3>Calçado</h3>
+                        </div>
+                        <div class="care-guide-body">
+                            <p>Até aos 12–18 meses não é necessário usar sapatos. Andar descalço ou com meias antiderrapantes é benéfico para o desenvolvimento do pé.</p>
+                        </div>
+                    </div>
+
+                    <!-- 8. Situações Normais no Bebé -->
+                    <div class="care-guide-item">
+                        <div class="care-guide-header">
+                            <span class="care-guide-number">8</span>
+                            <h3>Situações Normais no Bebé</h3>
+                        </div>
+                        <div class="care-guide-body">
+                            <ul>
+                                <li><strong>Bolçar:</strong> comum e tende a desaparecer com o crescimento</li>
+                                <li><strong>Espirros e soluços:</strong> normais e frequentes</li>
+                                <li><strong>Cristais de uratos:</strong> manchas rosa/alaranjadas na fralda, sem gravidade</li>
+                                <li><strong>Hipertrofia mamária:</strong> normal, não espremer</li>
+                                <li><strong>Mancha mongólica:</strong> benigna e desaparece com o tempo</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 9. Síndrome de Morte Súbita do Lactente -->
+                    <div class="care-guide-item">
+                        <div class="care-guide-header">
+                            <span class="care-guide-number">9</span>
+                            <h3>Síndrome de Morte Súbita do Lactente</h3>
+                        </div>
+                        <div class="care-guide-body">
+                            <h4>Para prevenir:</h4>
+                            <ul>
+                                <li>Dormir de barriga para cima</li>
+                                <li>Não usar almofadas, edredões ou brinquedos na cama</li>
+                                <li>Dormir em cama própria, no quarto dos pais, até aos 6 meses</li>
+                                <li>Ambiente sem fumo de tabaco</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 10. Cólicas -->
+                    <div class="care-guide-item">
+                        <div class="care-guide-header">
+                            <span class="care-guide-number">10</span>
+                            <h3>Cólicas</h3>
+                        </div>
+                        <div class="care-guide-body">
+                            <p>Choro intenso e inconsolável, sobretudo ao final do dia, comum até aos 3 meses.</p>
+                            <h4>Medidas de conforto:</h4>
+                            <ul>
+                                <li>Colo</li>
+                                <li>Massagens abdominais</li>
+                                <li>Movimentos suaves das pernas</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 11. Obstipação -->
+                    <div class="care-guide-item">
+                        <div class="care-guide-header">
+                            <span class="care-guide-number">11</span>
+                            <h3>Obstipação</h3>
+                        </div>
+                        <div class="care-guide-body">
+                            <p>Não existe um padrão "normal" de evacuações. Fazer força é comum.</p>
+                            <p>Se o bebé estiver confortável, geralmente não necessita de tratamento.</p>
+                        </div>
+                    </div>
+
+                    <!-- 12. Febre -->
+                    <div class="care-guide-item">
+                        <div class="care-guide-header">
+                            <span class="care-guide-number">12</span>
+                            <h3>Febre</h3>
+                        </div>
+                        <div class="care-guide-body">
+                            <p>Considera-se febre ≥38 ºC.</p>
+                            <h4>Medidas principais:</h4>
+                            <ul>
+                                <li>Hidratação</li>
+                                <li>Arrefecimento físico</li>
+                                <li>Antipiréticos adequados ao peso</li>
+                            </ul>
+                            
+                            <h4>Procurar ajuda médica se:</h4>
+                            <ul>
+                                <li>Bebé com menos de 3 meses com febre</li>
+                                <li>Febre superior a 72 horas</li>
+                                <li>Febre com dificuldade respiratória, vómitos persistentes, prostração ou convulsões</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 13. Primeiros Dentes -->
+                    <div class="care-guide-item">
+                        <div class="care-guide-header">
+                            <span class="care-guide-number">13</span>
+                            <h3>Primeiros Dentes</h3>
+                        </div>
+                        <div class="care-guide-body">
+                            <p>Surgem geralmente após os 6 meses.</p>
+                            <p>Podem causar irritabilidade e salivação, mas não causam febre.</p>
+                            <p>Massagens gengivais e anéis de dentição ajudam a aliviar o desconforto.</p>
+                        </div>
+                    </div>
+
+                    <!-- 14. Transporte Automóvel -->
+                    <div class="care-guide-item">
+                        <div class="care-guide-header">
+                            <span class="care-guide-number">14</span>
+                            <h3>Transporte Automóvel</h3>
+                        </div>
+                        <div class="care-guide-body">
+                            <ul>
+                                <li>Até aos 18 meses: sempre voltado para trás</li>
+                                <li>Idealmente até aos 4 anos</li>
+                                <li>Uso obrigatório de cadeira homologada até aos 12 anos ou 135 cm</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -225,9 +523,216 @@
         <section id="vacinas" class="section">
             <div class="container">
                 <h2 class="section-title">Calendário de Vacinas</h2>
-                <div class="vaccine-tracker">
+                
+                <!-- Plano de Vacinação Detalhado -->
+                <div class="vaccination-plan">
+                    <h3 class="plan-title">Plano de Vacinação</h3>
+                    
+                    <!-- Ao Nascer -->
+                    <div class="vaccine-age-group">
+                        <div class="age-header">
+                            <span class="age-badge">Ao Nascer</span>
+                            <h4>1.ª dose da vacina contra a Hepatite B (VHB)</h4>
+                        </div>
+                        <div class="vaccine-details">
+                            <div class="detail-item">
+                                <strong>O que significa (VHB):</strong> Vírus da Hepatite B
+                            </div>
+                            <div class="detail-item">
+                                <strong>Para que serve:</strong> Proteger contra a infeção pelo vírus da hepatite B
+                            </div>
+                            <div class="detail-item">
+                                <strong>Doença que previne:</strong> Hepatite B, que ataca o fígado e pode tornar-se crónica
+                            </div>
+                            <div class="detail-item">
+                                <strong>Agente causador:</strong> Vírus da hepatite B (HBV) → vírus
+                            </div>
+                            <div class="detail-item important">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <strong>Observação importante:</strong> A 1.ª dose é aplicada ao nascer, preferencialmente nas primeiras 12–24 horas de vida
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2 Meses -->
+                    <div class="vaccine-age-group">
+                        <div class="age-header">
+                            <span class="age-badge">2 Meses</span>
+                            <h4>Vacina hexavalente (DTPaHibVIPVHB)</h4>
+                        </div>
+                        <div class="vaccine-components">
+                            <div class="component-card">
+                                <h5><strong>DTPa</strong></h5>
+                                <p><strong>Serve para:</strong> proteger contra infeções graves</p>
+                                <p><strong>Previne:</strong> difteria, tétano, tosse convulsa</p>
+                                <p><strong>Agente:</strong> bactérias</p>
+                            </div>
+                            <div class="component-card">
+                                <h5><strong>Hib</strong></h5>
+                                <p><strong>Serve para:</strong> evitar infeções invasivas graves</p>
+                                <p><strong>Previne:</strong> meningite, pneumonia, epiglotite</p>
+                                <p><strong>Agente:</strong> Haemophilus influenzae tipo b → bactéria</p>
+                            </div>
+                            <div class="component-card">
+                                <h5><strong>VIP</strong></h5>
+                                <p><strong>Serve para:</strong> prevenir paralisia infantil</p>
+                                <p><strong>Previne:</strong> poliomielite</p>
+                                <p><strong>Agente:</strong> vírus (poliovírus)</p>
+                            </div>
+                            <div class="component-card">
+                                <h5><strong>VHB</strong></h5>
+                                <p><strong>Serve para:</strong> proteger o fígado</p>
+                                <p><strong>Previne:</strong> hepatite B</p>
+                                <p><strong>Agente:</strong> vírus da hepatite B</p>
+                            </div>
+                        </div>
+                        <div class="additional-vaccines">
+                            <div class="component-card">
+                                <h5><strong>Vacina Pn20</strong></h5>
+                                <p><strong>Serve para:</strong> proteger contra infeções pneumocócicas</p>
+                                <p><strong>Previne:</strong> pneumonia, meningite, septicemia, otite</p>
+                                <p><strong>Agente:</strong> Streptococcus pneumoniae → bactéria</p>
+                            </div>
+                            <div class="component-card">
+                                <h5><strong>Vacina MenB</strong></h5>
+                                <p><strong>Serve para:</strong> prevenir doença meningocócica</p>
+                                <p><strong>Previne:</strong> meningite e septicemia</p>
+                                <p><strong>Agente:</strong> Neisseria meningitidis grupo B → bactéria</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4 Meses -->
+                    <div class="vaccine-age-group">
+                        <div class="age-header">
+                            <span class="age-badge">4 Meses</span>
+                            <h4>Vacina pentavalente (DTPaHibVIP)</h4>
+                        </div>
+                        <div class="vaccine-components">
+                            <div class="component-card">
+                                <h5><strong>DTPa</strong></h5>
+                                <p><strong>Previne:</strong> difteria, tétano e tosse convulsa</p>
+                                <p><strong>Serve para:</strong> proteger contra infeções graves</p>
+                                <p><strong>Agente:</strong> bactérias</p>
+                            </div>
+                            <div class="component-card">
+                                <h5><strong>Hib</strong></h5>
+                                <p><strong>Previne:</strong> meningite, pneumonia, epiglotite</p>
+                                <p><strong>Serve para:</strong> evitar infeções invasivas</p>
+                                <p><strong>Agente:</strong> bactéria</p>
+                            </div>
+                            <div class="component-card">
+                                <h5><strong>VIP</strong></h5>
+                                <p><strong>Previne:</strong> poliomielite</p>
+                                <p><strong>Serve para:</strong> evitar paralisia infantil</p>
+                                <p><strong>Agente:</strong> vírus</p>
+                            </div>
+                        </div>
+                        <div class="additional-vaccines">
+                            <div class="component-card">
+                                <h5><strong>Vacina Pn20</strong></h5>
+                                <p><strong>Previne:</strong> pneumonia, meningite, septicemia, otite</p>
+                                <p><strong>Serve para:</strong> proteger contra pneumococo</p>
+                                <p><strong>Agente:</strong> Streptococcus pneumoniae → bactéria</p>
+                            </div>
+                            <div class="component-card">
+                                <h5><strong>Vacina MenB</strong></h5>
+                                <p><strong>Previne:</strong> meningite e septicemia</p>
+                                <p><strong>Serve para:</strong> proteger contra meningococo B</p>
+                                <p><strong>Agente:</strong> Neisseria meningitidis grupo B → bactéria</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6 Meses -->
+                    <div class="vaccine-age-group">
+                        <div class="age-header">
+                            <span class="age-badge">6 Meses</span>
+                            <h4>Vacina hexavalente (DTPaHibVIPVHB)</h4>
+                        </div>
+                        <div class="vaccine-components">
+                            <div class="component-card">
+                                <h5><strong>DTPa</strong></h5>
+                                <p><strong>Previne:</strong> difteria, tétano e tosse convulsa</p>
+                                <p><strong>Serve para:</strong> proteger contra infeções graves</p>
+                                <p><strong>Agente:</strong> bactérias</p>
+                            </div>
+                            <div class="component-card">
+                                <h5><strong>Hib</strong></h5>
+                                <p><strong>Previne:</strong> meningite, pneumonia, epiglotite</p>
+                                <p><strong>Serve para:</strong> evitar infeções invasivas graves</p>
+                                <p><strong>Agente:</strong> Haemophilus influenzae tipo b → bactéria</p>
+                            </div>
+                            <div class="component-card">
+                                <h5><strong>VIP</strong></h5>
+                                <p><strong>Previne:</strong> poliomielite</p>
+                                <p><strong>Serve para:</strong> evitar paralisia infantil</p>
+                                <p><strong>Agente:</strong> vírus (poliovírus)</p>
+                            </div>
+                            <div class="component-card">
+                                <h5><strong>VHB</strong></h5>
+                                <p><strong>Previne:</strong> hepatite B</p>
+                                <p><strong>Serve para:</strong> proteger o fígado contra infeção viral</p>
+                                <p><strong>Agente:</strong> vírus (hepatite B)</p>
+                            </div>
+                        </div>
+                        <div class="additional-vaccines">
+                            <div class="component-card">
+                                <h5><strong>Pn20 (3.ª dose)</strong></h5>
+                                <p><strong>Previne:</strong> pneumonia, meningite, septicemia, otite</p>
+                                <p><strong>Agente:</strong> Streptococcus pneumoniae → bactéria</p>
+                            </div>
+                            <div class="component-card">
+                                <h5><strong>MenB (3.ª dose)</strong></h5>
+                                <p><strong>Previne:</strong> meningite e septicemia</p>
+                                <p><strong>Agente:</strong> Neisseria meningitidis grupo B → bactéria</p>
+                            </div>
+                            <div class="component-card">
+                                <h5><strong>MenC (dose única)</strong></h5>
+                                <p><strong>Previne:</strong> meningite e septicemia</p>
+                                <p><strong>Agente:</strong> Neisseria meningitidis grupo C → bactéria</p>
+                            </div>
+                            <div class="component-card">
+                                <h5><strong>VASPR (1.ª dose)</strong></h5>
+                                <p><strong>Significa:</strong> Vacina contra Sarampo, Parotidite Epidémica e Rubéola</p>
+                                <p><strong>Previne:</strong> sarampo, caxumba e rubéola → vírus</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 18 Meses -->
+                    <div class="vaccine-age-group">
+                        <div class="age-header">
+                            <span class="age-badge">18 Meses</span>
+                            <h4>Vacina pentavalente (DTPaHibVIP) – reforço</h4>
+                        </div>
+                        <div class="vaccine-components">
+                            <div class="component-card">
+                                <h5><strong>DTPa</strong></h5>
+                                <p><strong>Previne:</strong> difteria, tétano e tosse convulsa</p>
+                                <p><strong>Agente:</strong> bactérias</p>
+                                <p><strong>Função:</strong> reforçar a imunidade adquirida nas doses anteriores</p>
+                            </div>
+                            <div class="component-card">
+                                <h5><strong>Hib</strong></h5>
+                                <p><strong>Previne:</strong> meningite, pneumonia, epiglotite</p>
+                                <p><strong>Agente:</strong> Haemophilus influenzae tipo b → bactéria</p>
+                                <p><strong>Função:</strong> reforço da proteção contra infeções graves</p>
+                            </div>
+                            <div class="component-card">
+                                <h5><strong>VIP</strong></h5>
+                                <p><strong>Previne:</strong> poliomielite</p>
+                                <p><strong>Agente:</strong> vírus (poliovírus)</p>
+                                <p><strong>Função:</strong> reforço da proteção contra paralisia infantil</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calendário Interativo (mantido) -->
+                <div class="vaccine-tracker" style="margin-top: 3rem;">
                     <div class="vaccine-info">
-                        <h3>Plano Nacional de Vacinação</h3>
+                        <h3>Calendário Interativo</h3>
                         <p>Acompanhe as vacinas obrigatórias e facultativas do seu bebé</p>
                         <button class="btn btn-primary" onclick="openVaccineSchedule()" style="margin-top: 1rem;">
                             <i class="fas fa-calendar-plus"></i> Agendar Vacina
@@ -309,41 +814,37 @@
             </div>
         </section>
 
-        <!-- Apoio Psicológico Section -->
+        <!-- Agendar Consultas Online Section -->
         <section id="apoio" class="section">
             <div class="container">
-                <h2 class="section-title">Apoio Psicológico</h2>
-                <div class="support-content">
-                    <div class="support-info">
-                        <h3>Está aqui para si</h3>
-                        <p>Sabemos que a maternidade pode ser desafiadora. O nosso serviço de apoio psicológico está disponível para ajudá-la a gerir a ansiedade e proporcionar um espaço seguro para partilhar sentimentos e dúvidas.</p>
-                        
-                        <div class="support-features">
-                            <div class="feature">
-                                <i class="fas fa-comments"></i>
-                                <h4>Chat com Psicólogos</h4>
-                                <p>Converse com profissionais qualificados</p>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-calendar-check"></i>
-                                <h4>Consultas Online</h4>
-                                <p>Agende consultas virtuais</p>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-users"></i>
-                                <h4>Grupos de Apoio</h4>
-                                <p>Conecte-se com outras mães</p>
-                            </div>
-                        </div>
+                <h2 class="section-title">Agendar Consultas Online</h2>
+                <div class="consultation-booking-content">
+                    <div class="professionals-list" id="professionals-list">
+                        <!-- Professionals will be loaded dynamically -->
                     </div>
                     
-                    <div class="support-actions">
-                        <button class="btn btn-primary" onclick="requestSupport()">
-                            <i class="fas fa-phone"></i> Pedir Apoio
-                        </button>
-                        <button class="btn btn-secondary" onclick="scheduleConsultation()">
-                            <i class="fas fa-calendar"></i> Agendar Consulta
-                        </button>
+                    <div class="booking-form-container" id="booking-form-container" style="display: none;">
+                        <div class="booking-form">
+                            <h3 id="booking-professional-name">Agendar Consulta</h3>
+                            <form onsubmit="event.preventDefault(); confirmOnlineConsultation();">
+                                <div style="margin-bottom: 1.5rem;">
+                                    <label for="consultation-date"><strong>Data:</strong></label>
+                                    <input type="date" id="consultation-date" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; margin-top: 0.5rem;">
+                                </div>
+                                <div style="margin-bottom: 1.5rem;">
+                                    <label for="consultation-time"><strong>Hora:</strong></label>
+                                    <input type="time" id="consultation-time" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; margin-top: 0.5rem;">
+                                </div>
+                                <div style="display: flex; gap: 1rem;">
+                                    <button type="submit" class="btn btn-primary" style="flex: 1;">
+                                        <i class="fas fa-calendar-check"></i> Confirmar Agendamento
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" onclick="cancelBooking()" style="flex: 1;">
+                                        <i class="fas fa-times"></i> Cancelar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -450,19 +951,19 @@
                         <h3>Artigos Técnicos e Científicos</h3>
                         <div class="articles-list">
                             <div class="article-item">
-                                <h4>Saúde Mental no Pós-Parto</h4>
-                                <p>Artigo sobre depressão pós-parto e como procurar ajuda</p>
-                                <a href="#" class="btn btn-small">Ler Artigo</a>
+                                <h4>Depressão Pós-Parto: Sinais e Sintomas</h4>
+                                <p>Informações sobre depressão pós-parto, sinais, sintomas e como procurar ajuda</p>
+                                <a href="https://www.sns24.gov.pt/pt/tema/saude-da-mulher/depressao-pos-parto/" target="_blank" class="btn btn-small">Ler Artigo</a>
                             </div>
                             <div class="article-item">
-                                <h4>Amamentação: Guia Completo</h4>
-                                <p>Informações científicas sobre amamentação e seus benefícios</p>
-                                <a href="#" class="btn btn-small">Ler Artigo</a>
+                                <h4>Ansiedade da Gravidez</h4>
+                                <p>Informações sobre saúde mental na gravidez e pós-parto</p>
+                                <a href="https://www.ulsts.min-saude.pt/mais-saude/saude-mental/saude-mental-na-gravidez-e-pos-parto/" target="_blank" class="btn btn-small">Ler Artigo</a>
                             </div>
                             <div class="article-item">
-                                <h4>Exercício Físico na Gravidez</h4>
-                                <p>Estudos sobre a importância do exercício durante a gestação</p>
-                                <a href="#" class="btn btn-small">Ler Artigo</a>
+                                <h4>Bem-Estar Mental e Desenvolvimento do Bebé</h4>
+                                <p>O bebé e os afetos - importância do bem-estar mental para o desenvolvimento do bebé</p>
+                                <a href="https://www.cuf.pt/mais-saude" target="_blank" class="btn btn-small">Ler Artigo</a>
                             </div>
                         </div>
                     </div>
@@ -705,77 +1206,38 @@
                     </div>
                     
                     <div class="meditation-cards">
-                        <div class="meditation-card" onclick="playMeditation('respiração')">
+                        <div class="meditation-card">
                             <i class="fas fa-wind"></i>
-                            <h4>Meditação de Respiração</h4>
-                            <p>Exercícios de respiração para reduzir ansiedade e stress</p>
-                            <div class="meditation-audio">
-                                <audio controls id="audio-respiracao">
-                                    <source src="#" type="audio/mpeg">
+                            <h4>Meditação Guiada 1</h4>
+                            <p>Relaxamento e bem-estar para mães</p>
+                            <div class="meditation-audio" onclick="event.stopPropagation();">
+                                <audio controls id="audio-1" preload="metadata">
+                                    <source src="1.mpeg" type="audio/mpeg">
                                     O seu navegador não suporta áudio.
                                 </audio>
                             </div>
-                            <span class="meditation-duration"><i class="fas fa-clock"></i> 10 min</span>
                         </div>
-                        <div class="meditation-card" onclick="playMeditation('sono')">
+                        <div class="meditation-card">
                             <i class="fas fa-moon"></i>
-                            <h4>Meditação para o Sono</h4>
-                            <p>Relaxamento profundo para melhorar a qualidade do sono</p>
-                            <div class="meditation-audio">
-                                <audio controls id="audio-sono">
-                                    <source src="#" type="audio/mpeg">
+                            <h4>Meditação Guiada 2</h4>
+                            <p>Paz interior e tranquilidade</p>
+                            <div class="meditation-audio" onclick="event.stopPropagation();">
+                                <audio controls id="audio-2" preload="metadata">
+                                    <source src="2.mpeg" type="audio/mpeg">
                                     O seu navegador não suporta áudio.
                                 </audio>
                             </div>
-                            <span class="meditation-duration"><i class="fas fa-clock"></i> 15 min</span>
                         </div>
-                        <div class="meditation-card" onclick="playMeditation('stress')">
+                        <div class="meditation-card">
                             <i class="fas fa-spa"></i>
-                            <h4>Redução de Stress</h4>
-                            <p>Meditações guiadas para aliviar o stress e tensão</p>
-                            <div class="meditation-audio">
-                                <audio controls id="audio-stress">
-                                    <source src="#" type="audio/mpeg">
+                            <h4>Meditação Guiada 3</h4>
+                            <p>Harmonia e equilíbrio emocional</p>
+                            <div class="meditation-audio" onclick="event.stopPropagation();">
+                                <audio controls id="audio-3" preload="metadata">
+                                    <source src="3.mpeg" type="audio/mpeg">
                                     O seu navegador não suporta áudio.
                                 </audio>
                             </div>
-                            <span class="meditation-duration"><i class="fas fa-clock"></i> 12 min</span>
-                        </div>
-                        <div class="meditation-card" onclick="playMeditation('gravidez')">
-                            <i class="fas fa-heart"></i>
-                            <h4>Meditação para a Gravidez</h4>
-                            <p>Conecte-se com o seu bebé através da meditação</p>
-                            <div class="meditation-audio">
-                                <audio controls id="audio-gravidez">
-                                    <source src="#" type="audio/mpeg">
-                                    O seu navegador não suporta áudio.
-                                </audio>
-                            </div>
-                            <span class="meditation-duration"><i class="fas fa-clock"></i> 20 min</span>
-                        </div>
-                        <div class="meditation-card" onclick="playMeditation('posparto')">
-                            <i class="fas fa-baby"></i>
-                            <h4>Meditação Pós-Parto</h4>
-                            <p>Encontre equilíbrio e paz durante o pós-parto</p>
-                            <div class="meditation-audio">
-                                <audio controls id="audio-posparto">
-                                    <source src="#" type="audio/mpeg">
-                                    O seu navegador não suporta áudio.
-                                </audio>
-                            </div>
-                            <span class="meditation-duration"><i class="fas fa-clock"></i> 15 min</span>
-                        </div>
-                        <div class="meditation-card" onclick="playMeditation('amor')">
-                            <i class="fas fa-heartbeat"></i>
-                            <h4>Meditação de Amor Próprio</h4>
-                            <p>Fortaleça o amor e cuidado por si mesma</p>
-                            <div class="meditation-audio">
-                                <audio controls id="audio-amor">
-                                    <source src="#" type="audio/mpeg">
-                                    O seu navegador não suporta áudio.
-                                </audio>
-                            </div>
-                            <span class="meditation-duration"><i class="fas fa-clock"></i> 10 min</span>
                         </div>
                     </div>
                 </div>
@@ -793,29 +1255,207 @@
                     </div>
                     
                     <div class="care-tab-content active" id="gestacao-content">
-                        <h3>O que NÃO fazer durante a Gravidez</h3>
-                        <ul class="care-list">
-                            <li><i class="fas fa-times-circle"></i> Não consumir álcool ou tabaco</li>
-                            <li><i class="fas fa-times-circle"></i> Evitar alimentos crus ou mal cozidos</li>
-                            <li><i class="fas fa-times-circle"></i> Não tomar medicamentos sem prescrição médica</li>
-                            <li><i class="fas fa-times-circle"></i> Evitar exercícios de alto impacto</li>
-                            <li><i class="fas fa-times-circle"></i> Não usar produtos químicos agressivos</li>
-                            <li><i class="fas fa-times-circle"></i> Evitar banhos muito quentes</li>
-                        </ul>
+                        <!-- Sinais de Alerta -->
+                        <div class="care-section-item">
+                            <h3><i class="fas fa-exclamation-triangle"></i> Sinais de Alerta na Gravidez</h3>
+                            <p class="alert-intro">Deve dirigir-se imediatamente ao centro de saúde ou à urgência da maternidade se apresentar:</p>
+                            <ul class="care-list alert-list">
+                                <li><i class="fas fa-exclamation-circle"></i> Sangramento vaginal ou perda de líquido pela vagina</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Corrimento vaginal anormal, com comichão, ardor ou cheiro diferente</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Dor abdominal ou pélvica contínua</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Febre (temperatura superior a 37,8 ºC) ou arrepios</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Dor ou ardor ao urinar, urgência urinária ou sangue na urina</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Vómitos persistentes</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Dor de cabeça forte ou contínua</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Alterações da visão</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Subida da tensão arterial</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Aumento rápido de peso num curto período de tempo</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Inchaço súbito dos pés, mãos ou rosto</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Diminuição dos movimentos fetais</li>
+                            </ul>
+                        </div>
+
+                        <!-- Higiene na Gravidez -->
+                        <div class="care-section-item">
+                            <h3><i class="fas fa-shower"></i> Higiene na Gravidez</h3>
+                            <p>Para cuidar da sua higiene deve:</p>
+                            <ul class="care-list">
+                                <li><i class="fas fa-check-circle"></i> Tomar duche regularmente (evitar água muito quente e terminar com água mais fria para reduzir varizes)</li>
+                                <li><i class="fas fa-check-circle"></i> Evitar depilação com cera quente</li>
+                                <li><i class="fas fa-check-circle"></i> Usar creme hidratante no corpo, especialmente no abdómen e mamas</li>
+                                <li><i class="fas fa-check-circle"></i> Evitar produtos perfumados ou com corantes</li>
+                                <li><i class="fas fa-check-circle"></i> Escovar os dentes após cada refeição ou pelo menos duas vezes por dia</li>
+                                <li><i class="fas fa-check-circle"></i> Preferir escova de dureza média e pasta com flúor</li>
+                                <li><i class="fas fa-check-circle"></i> Evitar alimentos açucarados, sobretudo entre refeições</li>
+                                <li><i class="fas fa-check-circle"></i> Ir a consulta de dentista no início da gravidez ou entre o 4.º e o 6.º mês</li>
+                            </ul>
+                        </div>
+
+                        <!-- Movimentos Fetais -->
+                        <div class="care-section-item">
+                            <h3><i class="fas fa-baby"></i> Movimentos Fetais</h3>
+                            <p>Os movimentos do bebé são um importante indicador do seu bem-estar.</p>
+                            <ul class="care-list">
+                                <li><i class="fas fa-info-circle"></i> Começam a ser sentidos, geralmente, entre as 18 e as 21 semanas</li>
+                                <li><i class="fas fa-info-circle"></i> Cada bebé tem o seu próprio padrão de movimentos</li>
+                            </ul>
+                            <div class="info-box">
+                                <h4>Como contar os movimentos:</h4>
+                                <ol>
+                                    <li>Iniciar a contagem ao levantar-se (ex.: 9h00)</li>
+                                    <li>Contar até registar 10 movimentos do bebé</li>
+                                    <li>Anotar no livro de gravidez a hora em que completou os 10 movimentos</li>
+                                </ol>
+                            </div>
+                            <div class="warning-box">
+                                <strong><i class="fas fa-exclamation-triangle"></i> Quando procurar ajuda:</strong>
+                                <p>Se após 12 horas não atingir 10 movimentos, registar o número contado e dirigir-se à urgência da maternidade ou contactar imediatamente o médico ou enfermeiro.</p>
+                            </div>
+                        </div>
+
+                        <!-- O que NÃO fazer -->
+                        <div class="care-section-item">
+                            <h3><i class="fas fa-times-circle"></i> O que NÃO fazer durante a Gravidez</h3>
+                            <ul class="care-list">
+                                <li><i class="fas fa-times-circle"></i> Não consumir álcool ou tabaco</li>
+                                <li><i class="fas fa-times-circle"></i> Evitar alimentos crus ou mal cozidos</li>
+                                <li><i class="fas fa-times-circle"></i> Não tomar medicamentos sem prescrição médica</li>
+                                <li><i class="fas fa-times-circle"></i> Evitar exercícios de alto impacto</li>
+                                <li><i class="fas fa-times-circle"></i> Não usar produtos químicos agressivos</li>
+                                <li><i class="fas fa-times-circle"></i> Evitar banhos muito quentes</li>
+                            </ul>
+                        </div>
                     </div>
                     
                     <div class="care-tab-content" id="posparto-content">
-                        <h3>Dicas para Recuperação Eficaz e Segura</h3>
-                        <ul class="care-list">
-                            <li><i class="fas fa-check-circle"></i> Descansar sempre que possível</li>
-                            <li><i class="fas fa-check-circle"></i> Manter uma alimentação equilibrada</li>
-                            <li><i class="fas fa-check-circle"></i> Beber muita água</li>
-                            <li><i class="fas fa-check-circle"></i> Fazer exercícios suaves de recuperação</li>
-                            <li><i class="fas fa-check-circle"></i> Cuidar da cicatriz (se houver cesariana)</li>
-                            <li><i class="fas fa-check-circle"></i> Procurar ajuda quando necessário</li>
-                            <li><i class="fas fa-check-circle"></i> Não levantar pesos excessivos</li>
-                            <li><i class="fas fa-check-circle"></i> Evitar relações sexuais nas primeiras semanas</li>
-                        </ul>
+                        <!-- Exercício Físico -->
+                        <div class="care-section-item">
+                            <h3><i class="fas fa-dumbbell"></i> Exercício Físico</h3>
+                            <ul class="care-list">
+                                <li><i class="fas fa-check-circle"></i> Iniciar com marcha e exercícios leves, sem causar cansaço</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Após parto normal:</strong> exercício leve desde casa; programas adaptados após 2 semanas</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Após cesariana:</strong> evitar pesos maiores que o bebé por 6 semanas; programas adaptados após a 6.ª semana</li>
+                                <li><i class="fas fa-check-circle"></i> Pode usar cinta abdominal se for confortável</li>
+                            </ul>
+                        </div>
+
+                        <!-- Cuidados com a Cicatriz -->
+                        <div class="care-section-item">
+                            <h3><i class="fas fa-band-aid"></i> Cuidados com a Cicatriz</h3>
+                            <ul class="care-list">
+                                <li><i class="fas fa-check-circle"></i> Banho de chuveiro permitido com penso impermeável</li>
+                                <li><i class="fas fa-check-circle"></i> Usar roupas largas</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Avaliação da sutura no 8.º–10.º dia:</strong>
+                                    <ul class="sub-list">
+                                        <li>Agrafos: retirados nessa altura</li>
+                                        <li>Pontos internos: não necessitam remoção</li>
+                                    </ul>
+                                </li>
+                                <li><i class="fas fa-check-circle"></i> Evitar banho de imersão e piscinas por 1 mês</li>
+                                <li><i class="fas fa-exclamation-circle"></i> <strong>Procurar ajuda se houver:</strong> vermelhidão, dor intensa, inchaço, mau cheiro ou pús</li>
+                            </ul>
+                        </div>
+
+                        <!-- Alívio da Dor -->
+                        <div class="care-section-item">
+                            <h3><i class="fas fa-pills"></i> Alívio da Dor</h3>
+                            <ul class="care-list">
+                                <li><i class="fas fa-check-circle"></i> Paracetamol 1 g de 8/8 h ou Ibuprofeno 400 mg de 8/8 h</li>
+                                <li><i class="fas fa-check-circle"></i> Não tomar se não houver dor</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Se a dor persistir por mais de 2 dias ou não aliviar, procurar médico</li>
+                            </ul>
+                        </div>
+
+                        <!-- Consulta de Revisão -->
+                        <div class="care-section-item">
+                            <h3><i class="fas fa-calendar-check"></i> Consulta de Revisão</h3>
+                            <p>Marcar consulta de puerpério para 4–6 semanas após o parto.</p>
+                        </div>
+
+                        <!-- Sinais de Alarme -->
+                        <div class="care-section-item">
+                            <h3><i class="fas fa-exclamation-triangle"></i> Sinais de Alarme</h3>
+                            <p class="alert-intro">Procurar ajuda médica se surgir:</p>
+                            <ul class="care-list alert-list">
+                                <li><i class="fas fa-exclamation-circle"></i> Febre >38 ºC</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Hemorragia vaginal intensa ou com mau cheiro</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Dor abdominal intensa e persistente</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Alterações na cicatriz</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Dor ou inchaço numa perna</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Falta de ar ou dor no peito</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Dor mamária intensa com vermelhidão</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Ardor urinário</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Cansaço extremo e palidez</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Dores de cabeça fortes, alterações da visão ou tensão arterial elevada</li>
+                            </ul>
+                        </div>
+
+                        <!-- Emoções e Humor -->
+                        <div class="care-section-item">
+                            <h3><i class="fas fa-heart"></i> Emoções e Humor</h3>
+                            <ul class="care-list">
+                                <li><i class="fas fa-info-circle"></i> Tristeza, choro, ansiedade e cansaço são comuns nas primeiras 2–3 semanas</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Se persistirem ou interferirem no dia a dia, procurar ajuda médica</li>
+                                <li><i class="fas fa-check-circle"></i> Aceitar apoio familiar e reduzir exigências</li>
+                            </ul>
+                        </div>
+
+                        <!-- Amamentação -->
+                        <div class="care-section-item">
+                            <h3><i class="fas fa-baby"></i> Amamentação</h3>
+                            <ul class="care-list">
+                                <li><i class="fas fa-info-circle"></i> Em caso de dúvidas ou dificuldades, contactar a enfermagem do puerpério</li>
+                                <li><i class="fas fa-info-circle"></i> Possível apoio presencial no Cantinho da Amamentação</li>
+                            </ul>
+                        </div>
+
+                        <!-- Hemorragia Vaginal -->
+                        <div class="care-section-item">
+                            <h3><i class="fas fa-tint"></i> Hemorragia Vaginal (Lóquios)</h3>
+                            <ul class="care-list">
+                                <li><i class="fas fa-info-circle"></i> Normal até 6 semanas</li>
+                                <li><i class="fas fa-info-circle"></i> <strong>Cor:</strong> vermelho → rosado → acastanhado/amarelado</li>
+                                <li><i class="fas fa-check-circle"></i> Higiene com água morna e sabão neutro; mudar pensos frequentemente</li>
+                            </ul>
+                        </div>
+
+                        <!-- Dor Vaginal / Cicatriz Perineal -->
+                        <div class="care-section-item">
+                            <h3><i class="fas fa-band-aid"></i> Dor Vaginal / Cicatriz Perineal</h3>
+                            <ul class="care-list">
+                                <li><i class="fas fa-info-circle"></i> O desconforto pode durar 7–15 dias</li>
+                                <li><i class="fas fa-check-circle"></i> Alívio com gelo local ou analgésicos</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Procurar ajuda se houver dor persistente, mau cheiro ou pús</li>
+                            </ul>
+                        </div>
+
+                        <!-- Obstipação e Hemorroidas -->
+                        <div class="care-section-item">
+                            <h3><i class="fas fa-heartbeat"></i> Obstipação e Hemorroidas</h3>
+                            <ul class="care-list">
+                                <li><i class="fas fa-check-circle"></i> Dieta rica em fibras e ingestão de ≥1,5 L de água por dia</li>
+                                <li><i class="fas fa-check-circle"></i> Gelo local ou cremes se necessário</li>
+                                <li><i class="fas fa-exclamation-circle"></i> Procurar médico se não melhorar</li>
+                            </ul>
+                        </div>
+
+                        <!-- Perda de Urina -->
+                        <div class="care-section-item">
+                            <h3><i class="fas fa-tint"></i> Perda de Urina</h3>
+                            <ul class="care-list">
+                                <li><i class="fas fa-info-circle"></i> Frequente e transitória (3–6 meses)</li>
+                                <li><i class="fas fa-check-circle"></i> Exercícios do pavimento pélvico (Kegel) 3 vezes por dia</li>
+                            </ul>
+                        </div>
+
+                        <!-- Contraceção e Atividade Sexual -->
+                        <div class="care-section-item">
+                            <h3><i class="fas fa-pills"></i> Contraceção e Atividade Sexual</h3>
+                            <ul class="care-list">
+                                <li><i class="fas fa-info-circle"></i> Contraceção a partir de 21 dias pós-parto (pílula progestativa)</li>
+                                <li><i class="fas fa-info-circle"></i> Atividade sexual recomendada após 1 mês</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1084,6 +1724,47 @@
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">
                         <i class="fas fa-calendar-check"></i> Confirmar Agendamento
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Baby Data Modal -->
+    <div id="baby-data-modal" class="modal" onclick="closeBabyDataModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3>Dados do Bebé</h3>
+                <button class="close-btn" onclick="closeBabyDataModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 1.5rem; color: var(--text-light);">
+                    Para personalizar a sua experiência e calcular as datas das vacinas, por favor, introduza os dados do seu bebé.
+                </p>
+                <form onsubmit="event.preventDefault(); saveBabyData();">
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="baby-name"><strong>Nome do Bebé:</strong></label>
+                        <input type="text" id="baby-name" placeholder="Ex: Maria" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; margin-top: 0.5rem;">
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="baby-birth-date" id="baby-birth-date-label">
+                            <strong>Data de Nascimento:</strong>
+                        </label>
+                        <input type="date" id="baby-birth-date" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; margin-top: 0.5rem;">
+                        <small style="color: var(--text-light); display: block; margin-top: 0.5rem;">
+                            Se o bebé ainda não nasceu, pode usar a data prevista.
+                        </small>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                            <input type="checkbox" id="baby-not-born" onchange="toggleBirthDate()">
+                            <span>O bebé ainda não nasceu</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-save"></i> Guardar Dados
                     </button>
                 </form>
             </div>

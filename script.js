@@ -114,117 +114,57 @@ const vaccines = [
     }
 ];
 
-// Product data extracted from filenames
+// Product data for Essenciais da Mãe (ordem dada, imagens 1–7.webp)
 const farmamamaProducts = [
     {
-        filename: '3660709-CUIDADOS-DO-CORPO-CREME-HIDRATANTE-PARA-MAMILOS-MEDELA-P-01.jpg',
-        name: 'Creme Hidratante para Mamilos',
-        category: 'Cuidados do Corpo',
+        filename: '1.webp',
+        name: 'Medela Easy Pour Sacos Conservação de Leite X50',
+        category: 'Amamentação',
         brand: 'Medela',
-        description: 'Hidratação e proteção dos mamilos durante a amamentação'
+        description: 'Sacos para conservação e armazenamento de leite materno'
     },
     {
-        filename: '4593451-LINGERIE-CINTA-POS-PARTO-REGULAVEL-MAMMY-CHICCO-P-01.jpg',
-        name: 'Cinta Pós-Parto Regulável',
-        category: 'Lingerie',
-        brand: 'Mammy Chicco',
-        description: 'Suporte abdominal pós-parto ajustável'
+        filename: '2.webp',
+        name: 'Medela Coletor de Leite Materno Silicone',
+        category: 'Amamentação',
+        brand: 'Medela',
+        description: 'Coletor de leite materno em silicone, suave e confortável'
     },
     {
-        filename: '6065014-OUTROS-PENSOS-HIGIENICOS-POS-PARTO-WELLS-P-01.jpg',
-        name: 'Pensos Higiénicos Pós-Parto',
-        category: 'Pós-Parto',
-        brand: 'Wells',
-        description: 'Absorção e proteção pós-parto'
-    },
-    {
-        filename: '6148805-SUPLEMENTOS-VITADE-COM-VITAMINA-D-E-DHA-VITADE-P-01.jpg',
-        name: 'Vitade com Vitamina D e DHA',
-        category: 'Suplementos',
-        brand: 'Vitade',
-        description: 'Suplemento com vitamina D e DHA para gestação'
-    },
-    {
-        filename: '6396271-PRODUTOS-P-DENTICAO-DETERGENTE-PARA-BIBEROES-E-TETINAS-WELLS-P-01.jpg',
-        name: 'Detergente para Biberões e Tetinas',
-        category: 'Higiene',
-        brand: 'Wells',
-        description: 'Limpeza segura de biberões e tetinas'
-    },
-    {
-        filename: '7540629-OUTROS-FRASCO-LAVAGEM-POS-PARTO-LANSINOH-P-01.jpg',
-        name: 'Frasco de Lavagem Pós-Parto',
-        category: 'Pós-Parto',
-        brand: 'Lansinoh',
-        description: 'Higiene íntima pós-parto'
-    },
-    {
-        filename: '7576302-CUIDADOS-DO-CORPO-OLEO-ANTI-ESTRIAS-BIO-MUSTELA-MATERNIDADE-P-01.jpg',
-        name: 'Óleo Anti-Estrias Bio',
+        filename: '3.webp',
+        name: 'ISDIN Woman Antiestrias 250 ml Duo',
         category: 'Cuidados do Corpo',
-        brand: 'Mustela Maternidade',
-        description: 'Prevenção e tratamento de estrias durante a gravidez'
+        brand: 'ISDIN',
+        description: 'Creme antiestrias para prevenção durante a gravidez'
     },
     {
-        filename: '7719986-SUPLEMENTOS-GESTACARE-GESTACAO-COM-ACIDO-FOLICO-E-OMEGA-3-GESTACARE-P-01.webp',
-        name: 'Gestacare Gestação com Ácido Fólico e Omega-3',
+        filename: '4.webp',
+        name: 'Medela Purelan 100 Creme para Mamilos 37 g',
+        category: 'Amamentação',
+        brand: 'Medela',
+        description: 'Creme hidratante e protetor para mamilos, 100% lanolina'
+    },
+    {
+        filename: '5.webp',
+        name: 'Chicco Cinta Pós-Parto Regulável 38',
+        category: 'Pós-Parto',
+        brand: 'Chicco',
+        description: 'Cinta abdominal pós-parto ajustável para suporte e recuperação'
+    },
+    {
+        filename: '6.webp',
+        name: 'Medela Soutien de Maternidade e Amamentação Ultimate BodyFit Branco XL',
+        category: 'Lingerie',
+        brand: 'Medela',
+        description: 'Soutien confortável para gravidez e amamentação, com suporte adaptável'
+    },
+    {
+        filename: '7.webp',
+        name: 'Gestacare Gestação Cápsulas x30',
         category: 'Suplementos',
         brand: 'Gestacare',
-        description: 'Suplemento pré-natal com ácido fólico e omega-3'
+        description: 'Suplemento alimentar para grávidas com ácido fólico e outros nutrientes essenciais'
     },
-    {
-        filename: '7974285-LINGERIE-SOUTIEN-DE-AMAMENTACAO-BEGE-WELLS-P-01.jpg',
-        name: 'Soutien de Amamentação',
-        category: 'Lingerie',
-        brand: 'Wells',
-        description: 'Soutien confortável para amamentação'
-    },
-    {
-        filename: '8048337-OUTROS-FRASCO-LAVAGEM-POS-PARTO-MOTHER-WELLS-P-01 (1).webp',
-        name: 'Frasco de Lavagem Pós-Parto Mother',
-        category: 'Pós-Parto',
-        brand: 'Wells',
-        description: 'Higiene íntima pós-parto'
-    },
-    {
-        filename: '8111959-HIGIENE-ORGANIZADOR-MUDA-FRALDA-BABY-WELLS-P-01.jpg',
-        name: 'Organizador Muda Fralda',
-        category: 'Higiene',
-        brand: 'Wells',
-        description: 'Organizador prático para mudança de fraldas'
-    },
-    {
-        filename: '8121118-AMAMENTACAO-EXTRATOR-DE-LEITE-DUPLO-SWING-MAXI-HANDS-FREE-MEDELA-P-01.jpg',
-        name: 'Extrator de Leite Duplo Swing Maxi',
-        category: 'Amamentação',
-        brand: 'Medela',
-        description: 'Extrator de leite duplo hands-free'
-    },
-    {
-        filename: '8153732-AMAMENTACAO-ALMOFADA-MAMARIA-QUENTE-E-FRIA-WELLS-P-01.jpg',
-        name: 'Almofada Mamária Quente e Fria',
-        category: 'Amamentação',
-        brand: 'Wells',
-        description: 'Alívio para seios durante a amamentação'
-    },
-    {
-        filename: '8153733-OUTROS-ALMOFADA-QUENTE-E-FRIA-POS-PARTO-WELLS-P-02.jpg',
-        name: 'Almofada Quente e Fria Pós-Parto',
-        category: 'Pós-Parto',
-        brand: 'Wells',
-        description: 'Alívio e conforto pós-parto'
-    },
-    {
-        filename: '8289280-CUIDADOS-DO-CORPO-PENSO-PARA-CICATRIZ-CESARIANA-BABY-WELLS-P-01.jpg',
-        name: 'Penso para Cicatriz de Cesariana',
-        category: 'Cuidados do Corpo',
-        brand: 'Wells',
-        description: 'Proteção e cuidado da cicatriz de cesariana'
-    }
-];
-
-// Farmababy Products data extracted from filenames
-const farmababyProducts = [
     {
         filename: 'Almofada de Amamentação.jpg',
         name: 'Almofada de Amamentação',
@@ -232,6 +172,10 @@ const farmababyProducts = [
         brand: 'Genérico',
         description: 'Almofada confortável para apoio durante a amamentação'
     },
+];
+
+// Farmababy Products data extracted from filenames
+const farmababyProducts = [
     {
         filename: 'Banheira de Bebé Antiderrapante.jpg',
         name: 'Banheira de Bebé Antiderrapante',
@@ -547,6 +491,14 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializeApp() {
+    // Check if baby data exists, if not show modal
+    const babyData = getBabyData();
+    if (!babyData || !babyData.birthDate) {
+        setTimeout(() => {
+            openBabyDataModal();
+        }, 1000); // Show after 1 second
+    }
+    
     // Set initial active section
     showSection('home');
     
@@ -555,6 +507,9 @@ function initializeApp() {
     
     // Initialize chat
     initializeChat();
+    
+    // Load baby profile if on that section
+    loadBabyProfile();
 }
 
 function setupEventListeners() {
@@ -602,6 +557,32 @@ function setupEventListeners() {
         productSearch.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 searchProducts();
+            }
+        });
+    }
+
+    // Product search for Mamã (Essenciais para a Mamã)
+    const productSearchMae = document.getElementById('product-search-mae');
+    if (productSearchMae) {
+        productSearchMae.addEventListener('input', () => {
+            searchProductsMae();
+        });
+        productSearchMae.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchProductsMae();
+            }
+        });
+    }
+
+    // Product search for Bebé (Essenciais para o Bebé)
+    const productSearchBebe = document.getElementById('product-search-bebe');
+    if (productSearchBebe) {
+        productSearchBebe.addEventListener('input', () => {
+            searchProductsBebe();
+        });
+        productSearchBebe.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchProductsBebe();
             }
         });
     }
@@ -720,8 +701,24 @@ function showSection(sectionId) {
     // Load products when opening essentials sections
     if (sectionId === 'essenciais-mae') {
         renderFarmamamaProducts();
+        // Clear search and show all products
+        const searchInputMae = document.getElementById('product-search-mae');
+        if (searchInputMae) {
+            searchInputMae.value = '';
+        }
     } else if (sectionId === 'essenciais-bebe') {
         renderFarmababyProducts();
+        // Clear search and show all products
+        const searchInputBebe = document.getElementById('product-search-bebe');
+        if (searchInputBebe) {
+            searchInputBebe.value = '';
+        }
+    } else if (sectionId === 'perfil-bebe') {
+        loadBabyProfile();
+    } else if (sectionId === 'vacinas') {
+        updateVaccineCalendar();
+    } else if (sectionId === 'apoio') {
+        renderProfessionals();
     }
 }
 
@@ -815,31 +812,138 @@ function updateVaccineCalendar() {
     renderVaccines();
 }
 
+function calculateVaccineDate(birthDate, ageInMonths) {
+    if (!birthDate) return null;
+    
+    const birth = new Date(birthDate);
+    const vaccineDate = new Date(birth);
+    vaccineDate.setMonth(vaccineDate.getMonth() + ageInMonths);
+    
+    return vaccineDate;
+}
+
+function formatVaccineDate(date) {
+    if (!date) return '';
+    return date.toLocaleDateString('pt-PT', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+}
+
+function getVaccineStatus(vaccineDate) {
+    if (!vaccineDate) return 'upcoming';
+    
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const vaxDate = new Date(vaccineDate);
+    vaxDate.setHours(0, 0, 0, 0);
+    
+    // Consider completed if date has passed
+    if (vaxDate < today) {
+        return 'completed';
+    } else if (vaxDate.getTime() === today.getTime()) {
+        return 'pending';
+    } else {
+        return 'upcoming';
+    }
+}
+
+function parseVaccineAge(ageString) {
+    // Parse age strings like "Nascimento", "2 meses", "4 meses", etc.
+    if (ageString.toLowerCase().includes('nascimento') || ageString.toLowerCase().includes('ao nascer')) {
+        return 0;
+    }
+    
+    const match = ageString.match(/(\d+)\s*(mês|meses|m)/i);
+    if (match) {
+        return parseInt(match[1]);
+    }
+    
+    return null;
+}
+
+function getMonthColor(month) {
+    // Array de cores diferentes para cada mês (0-11)
+    const monthColors = [
+        '#FF6B9D', // Janeiro - Rosa vibrante
+        '#C44569', // Fevereiro - Rosa escuro
+        '#F8B500', // Março - Amarelo
+        '#FFA07A', // Abril - Salmão
+        '#98D8C8', // Maio - Verde água
+        '#6BCB77', // Junho - Verde
+        '#4ECDC4', // Julho - Turquesa
+        '#45B7D1', // Agosto - Azul claro
+        '#96CEB4', // Setembro - Verde menta
+        '#FFEAA7', // Outubro - Amarelo claro
+        '#DDA15E', // Novembro - Laranja
+        '#BC6C25'  // Dezembro - Castanho
+    ];
+    return monthColors[month] || '#ffc0cb';
+}
+
 function renderVaccines() {
     const vaccineList = document.getElementById('vaccine-list');
     if (!vaccineList) return;
     
     vaccineList.innerHTML = '';
     
+    const babyData = getBabyData();
+    const hasBabyData = babyData && babyData.birthDate;
+    
+    // Show message if no baby data
+    if (!hasBabyData) {
+        vaccineList.innerHTML = `
+            <div style="text-align: center; padding: 2rem; background: var(--soft-pink); border-radius: var(--border-radius);">
+                <i class="fas fa-info-circle" style="font-size: 2rem; color: var(--baby-pink); margin-bottom: 1rem;"></i>
+                <h3 style="margin-bottom: 1rem;">Dados do Bebé Necessários</h3>
+                <p style="color: var(--text-light); margin-bottom: 1.5rem;">
+                    Para calcular as datas das vacinas, por favor, introduza os dados do bebé no Perfil do Bebé.
+                </p>
+                <button class="btn btn-primary" onclick="showSection('perfil-bebe')">
+                    <i class="fas fa-baby"></i> Ir para Perfil do Bebé
+                </button>
+            </div>
+        `;
+        return;
+    }
+    
     vaccines.forEach(vaccine => {
+        const ageInMonths = parseVaccineAge(vaccine.age);
+        const vaccineDate = ageInMonths !== null ? calculateVaccineDate(babyData.birthDate, ageInMonths) : null;
+        const formattedDate = vaccineDate ? formatVaccineDate(vaccineDate) : '';
+        const status = vaccineDate ? getVaccineStatus(vaccineDate) : vaccine.status;
+        
+        // Get month color for the vaccine
+        const month = vaccineDate ? vaccineDate.getMonth() : null;
+        const monthColor = month !== null ? getMonthColor(month) : '#ffc0cb';
+        
         const vaccineElement = document.createElement('div');
-        vaccineElement.className = `vaccine-item ${vaccine.status}`;
+        vaccineElement.className = `vaccine-item ${status}`;
         vaccineElement.onclick = () => openVaccineDetails(vaccine);
         
-        const iconClass = vaccine.status === 'completed' ? 'fa-check-circle' : 
-                         vaccine.status === 'pending' ? 'fa-clock' : 'fa-calendar';
+        // Apply month color as border-left
+        if (month !== null) {
+            vaccineElement.style.borderLeftColor = monthColor;
+        }
+        
+        const iconClass = status === 'completed' ? 'fa-check-circle' : 
+                         status === 'pending' ? 'fa-clock' : 'fa-calendar';
+        
+        const dateInfo = formattedDate ? `<p style="margin-top: 0.5rem; color: ${monthColor}; font-weight: 600;"><i class="fas fa-calendar-alt"></i> ${formattedDate}</p>` : '';
         
         vaccineElement.innerHTML = `
-            <div class="vaccine-icon">
+            <div class="vaccine-icon" style="background: ${monthColor}; color: white;">
                 <i class="fas ${iconClass}"></i>
             </div>
             <div class="vaccine-details">
                 <h4>${vaccine.name}</h4>
                 <p><strong>Idade:</strong> ${vaccine.age} - ${vaccine.doses}</p>
+                ${dateInfo}
                 <p class="vaccine-description">${vaccine.description}</p>
-                <span class="vaccine-status ${vaccine.status}">${
-                    vaccine.status === 'completed' ? 'Concluída' : 
-                    vaccine.status === 'pending' ? 'Pendente' : 'Próxima'
+                <span class="vaccine-status ${status}">${
+                    status === 'completed' ? 'Concluída' : 
+                    status === 'pending' ? 'Pendente' : 'Próxima'
                 }</span>
             </div>
         `;
@@ -1087,21 +1191,35 @@ function searchProducts() {
 }
 
 function searchProductsMae() {
-    const searchTerm = document.getElementById('product-search-mae').value.toLowerCase();
+    const searchInput = document.getElementById('product-search-mae');
+    if (!searchInput) return;
+    
+    const searchTerm = searchInput.value.toLowerCase().trim();
     const productList = document.getElementById('farmamama-list');
     
     if (!productList) return;
     
     const productItems = productList.querySelectorAll('.product-item');
     
+    // If search is empty, show all products
+    if (searchTerm === '') {
+        productItems.forEach(item => {
+            item.style.display = 'flex';
+        });
+        return;
+    }
+    
+    // Filter products based on search term
     productItems.forEach(item => {
-        const productName = item.querySelector('h4').textContent.toLowerCase();
-        const productDescription = item.querySelector('p').textContent.toLowerCase();
+        const productName = item.querySelector('h4')?.textContent.toLowerCase() || '';
+        const productDescription = item.querySelector('p')?.textContent.toLowerCase() || '';
         const productCategory = item.querySelector('.product-category')?.textContent.toLowerCase() || '';
+        const productBrand = item.querySelector('.product-brand')?.textContent.toLowerCase() || '';
         
         if (productName.includes(searchTerm) || 
             productDescription.includes(searchTerm) || 
-            productCategory.includes(searchTerm)) {
+            productCategory.includes(searchTerm) ||
+            productBrand.includes(searchTerm)) {
             item.style.display = 'flex';
         } else {
             item.style.display = 'none';
@@ -1110,21 +1228,35 @@ function searchProductsMae() {
 }
 
 function searchProductsBebe() {
-    const searchTerm = document.getElementById('product-search-bebe').value.toLowerCase();
+    const searchInput = document.getElementById('product-search-bebe');
+    if (!searchInput) return;
+    
+    const searchTerm = searchInput.value.toLowerCase().trim();
     const productList = document.getElementById('farmababy-list');
     
     if (!productList) return;
     
     const productItems = productList.querySelectorAll('.product-item');
     
+    // If search is empty, show all products
+    if (searchTerm === '') {
+        productItems.forEach(item => {
+            item.style.display = 'flex';
+        });
+        return;
+    }
+    
+    // Filter products based on search term
     productItems.forEach(item => {
-        const productName = item.querySelector('h4').textContent.toLowerCase();
-        const productDescription = item.querySelector('p').textContent.toLowerCase();
+        const productName = item.querySelector('h4')?.textContent.toLowerCase() || '';
+        const productDescription = item.querySelector('p')?.textContent.toLowerCase() || '';
         const productCategory = item.querySelector('.product-category')?.textContent.toLowerCase() || '';
+        const productBrand = item.querySelector('.product-brand')?.textContent.toLowerCase() || '';
         
         if (productName.includes(searchTerm) || 
             productDescription.includes(searchTerm) || 
-            productCategory.includes(searchTerm)) {
+            productCategory.includes(searchTerm) ||
+            productBrand.includes(searchTerm)) {
             item.style.display = 'flex';
         } else {
             item.style.display = 'none';
@@ -1214,8 +1346,13 @@ function getCategoryIcon(category) {
 // Function to render Farmamama products
 function renderFarmamamaProducts() {
     const farmamamaList = document.getElementById('farmamama-list');
-    if (!farmamamaList) return;
+    if (!farmamamaList) {
+        console.error('farmamama-list element not found');
+        return;
+    }
     
+    // Add active class to show the product list
+    farmamamaList.classList.add('active');
     farmamamaList.innerHTML = '';
     
     farmamamaProducts.forEach((product, index) => {
@@ -1223,7 +1360,10 @@ function renderFarmamamaProducts() {
         productElement.className = 'product-item';
         
         const icon = getCategoryIcon(product.category);
-        const imagePath = `produtosmae/${product.filename}`;
+        // Almofada de Amamentação está na pasta produtosBEBE, os outros estão em produtosmae
+        const imagePath = product.filename === 'Almofada de Amamentação.jpg' 
+            ? `produtosBEBE/${product.filename}` 
+            : `produtosmae/${product.filename}`;
         
         // Escape quotes for onclick attribute
         const escapedName = product.name.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
@@ -1251,6 +1391,8 @@ function renderFarmababyProducts() {
     const farmababyList = document.getElementById('farmababy-list');
     if (!farmababyList) return;
     
+    // Add active class to show the product list
+    farmababyList.classList.add('active');
     farmababyList.innerHTML = '';
     
     farmababyProducts.forEach((product, index) => {
@@ -1327,6 +1469,12 @@ function showMotivationalPhrase() {
     toast.className = 'motivational-toast';
     toast.textContent = phrase;
     document.body.appendChild(toast);
+    
+    // Add click event to remove the toast
+    toast.addEventListener('click', () => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    });
     
     setTimeout(() => {
         toast.classList.add('show');
@@ -1485,8 +1633,25 @@ function renderGallery() {
 }
 
 // Meditation Functions
-function playMeditation(type) {
-    alert(`A iniciar meditação: ${type}\n\nEsta funcionalidade será implementada em breve com áudio guiado.`);
+function playMeditation(audioId) {
+    // Stop all other audio players
+    const allAudios = document.querySelectorAll('audio');
+    allAudios.forEach(audio => {
+        if (audio.id !== audioId) {
+            audio.pause();
+            audio.currentTime = 0;
+        }
+    });
+    
+    // Play the selected audio
+    const audio = document.getElementById(audioId);
+    if (audio) {
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    }
 }
 
 // Care Functions
@@ -1499,6 +1664,162 @@ function showCareTab(tab) {
     
     document.querySelector(`.care-tab[onclick="showCareTab('${tab}')"]`)?.classList.add('active');
     document.getElementById(`${tab}-content`)?.classList.add('active');
+}
+
+// Professionals data
+const professionals = [
+    {
+        id: 'psicologo1',
+        name: 'Dra. Ana Silva',
+        specialty: 'Psicóloga Clínica',
+        specialization: 'Psicologia Perinatal',
+        experience: '10 anos de experiência',
+        description: 'Especializada em apoio psicológico durante a gravidez e pós-parto',
+        icon: 'fa-user-md',
+        color: '#ffc0cb'
+    },
+    {
+        id: 'psicologo2',
+        name: 'Dr. João Santos',
+        specialty: 'Psicólogo Clínico',
+        specialization: 'Ansiedade e Depressão Pós-Parto',
+        experience: '8 anos de experiência',
+        description: 'Especializado no tratamento de ansiedade e depressão pós-parto',
+        icon: 'fa-user-md',
+        color: '#add8e6'
+    },
+    {
+        id: 'nutricionista1',
+        name: 'Dra. Maria Costa',
+        specialty: 'Nutricionista',
+        specialization: 'Nutrição na Gravidez e Pós-Parto',
+        experience: '12 anos de experiência',
+        description: 'Especializada em nutrição durante a gravidez e amamentação',
+        icon: 'fa-apple-alt',
+        color: '#98D8C8'
+    },
+    {
+        id: 'enfermeiro1',
+        name: 'Enf. Pedro Oliveira',
+        specialty: 'Enfermeiro',
+        specialization: 'Enfermagem Obstétrica',
+        experience: '15 anos de experiência',
+        description: 'Especializado em cuidados de enfermagem durante a gravidez e pós-parto',
+        icon: 'fa-user-nurse',
+        color: '#6BCB77'
+    },
+    {
+        id: 'psicologo3',
+        name: 'Dra. Sofia Martins',
+        specialty: 'Psicóloga Clínica',
+        specialization: 'Terapia Familiar',
+        experience: '7 anos de experiência',
+        description: 'Especializada em terapia familiar e apoio à parentalidade',
+        icon: 'fa-user-md',
+        color: '#FFA07A'
+    }
+];
+
+let currentSelectedProfessional = null;
+
+// Online Consultation Functions
+function renderProfessionals() {
+    const professionalsList = document.getElementById('professionals-list');
+    if (!professionalsList) return;
+    
+    professionalsList.innerHTML = '';
+    
+    professionals.forEach(professional => {
+        const professionalCard = document.createElement('div');
+        professionalCard.className = 'professional-card';
+        professionalCard.style.borderLeftColor = professional.color;
+        
+        professionalCard.innerHTML = `
+            <div class="professional-icon" style="background: ${professional.color};">
+                <i class="fas ${professional.icon}"></i>
+            </div>
+            <div class="professional-info">
+                <h3>${professional.name}</h3>
+                <p class="professional-specialty"><strong>${professional.specialty}</strong></p>
+                <p class="professional-specialization">${professional.specialization}</p>
+                <p class="professional-experience">${professional.experience}</p>
+                <p class="professional-description">${professional.description}</p>
+            </div>
+            <div class="professional-action">
+                <button class="btn btn-primary" onclick="selectProfessional('${professional.id}')">
+                    <i class="fas fa-calendar-check"></i> Agendar Consulta
+                </button>
+            </div>
+        `;
+        
+        professionalsList.appendChild(professionalCard);
+    });
+}
+
+function selectProfessional(professionalId) {
+    const professional = professionals.find(p => p.id === professionalId);
+    if (!professional) return;
+    
+    currentSelectedProfessional = professional;
+    
+    // Hide professionals list and show booking form
+    const professionalsList = document.getElementById('professionals-list');
+    const bookingForm = document.getElementById('booking-form-container');
+    const bookingName = document.getElementById('booking-professional-name');
+    
+    if (professionalsList) professionalsList.style.display = 'none';
+    if (bookingForm) bookingForm.style.display = 'block';
+    if (bookingName) bookingName.textContent = `Agendar Consulta com ${professional.name}`;
+    
+    // Set minimum date to today
+    const dateInput = document.getElementById('consultation-date');
+    if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+        dateInput.value = '';
+    }
+    
+    // Clear time
+    const timeInput = document.getElementById('consultation-time');
+    if (timeInput) timeInput.value = '';
+}
+
+function cancelBooking() {
+    const professionalsList = document.getElementById('professionals-list');
+    const bookingForm = document.getElementById('booking-form-container');
+    
+    if (professionalsList) professionalsList.style.display = 'grid';
+    if (bookingForm) bookingForm.style.display = 'none';
+    
+    currentSelectedProfessional = null;
+}
+
+function confirmOnlineConsultation() {
+    if (!currentSelectedProfessional) {
+        alert('Por favor, selecione um profissional.');
+        return;
+    }
+    
+    const date = document.getElementById('consultation-date').value;
+    const time = document.getElementById('consultation-time').value;
+    
+    if (!date || !time) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+    }
+    
+    // Format date and time
+    const dateObj = new Date(date);
+    const formattedDate = dateObj.toLocaleDateString('pt-PT', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+    
+    alert(`Consulta agendada com sucesso!\n\nProfissional: ${currentSelectedProfessional.name}\nData: ${formattedDate}\nHora: ${time}`);
+    
+    // Reset form
+    cancelBooking();
 }
 
 // Teleconsultation Functions
@@ -1534,6 +1855,198 @@ function confirmTeleconsultation() {
     const type = currentTeleconsultationType === 'nutricionista' ? 'Nutricionista' : 'Enfermeiro';
     alert(`Consulta com ${type} agendada para ${date} às ${time}`);
     closeTeleconsultation();
+}
+
+// Baby Data Functions
+function getBabyData() {
+    const data = localStorage.getItem('babyData');
+    return data ? JSON.parse(data) : null;
+}
+
+function saveBabyData() {
+    const name = document.getElementById('baby-name').value.trim();
+    const birthDate = document.getElementById('baby-birth-date').value;
+    const notBorn = document.getElementById('baby-not-born').checked;
+    
+    if (!birthDate) {
+        alert('Por favor, introduza a data de nascimento ou data prevista.');
+        return;
+    }
+    
+    const babyData = {
+        name: name || 'Bebé',
+        birthDate: birthDate,
+        isBorn: !notBorn,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+    };
+    
+    localStorage.setItem('babyData', JSON.stringify(babyData));
+    closeBabyDataModal();
+    
+    // Reload profile and update vaccine calendar
+    loadBabyProfile();
+    updateVaccineCalendar();
+    
+    // Show success message
+    alert('Dados do bebé guardados com sucesso!');
+}
+
+function openBabyDataModal() {
+    const modal = document.getElementById('baby-data-modal');
+    const babyData = getBabyData();
+    
+    if (modal) {
+        // Pre-fill form if data exists
+        if (babyData) {
+            document.getElementById('baby-name').value = babyData.name || '';
+            document.getElementById('baby-birth-date').value = babyData.birthDate || '';
+            document.getElementById('baby-not-born').checked = !babyData.isBorn;
+        } else {
+            // Clear form
+            document.getElementById('baby-name').value = '';
+            document.getElementById('baby-birth-date').value = '';
+            document.getElementById('baby-not-born').checked = false;
+        }
+        
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeBabyDataModal() {
+    const modal = document.getElementById('baby-data-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+function toggleBirthDate() {
+    const notBorn = document.getElementById('baby-not-born').checked;
+    const birthDateInput = document.getElementById('baby-birth-date');
+    const label = document.getElementById('baby-birth-date-label');
+    
+    if (notBorn) {
+        birthDateInput.required = false;
+        if (label) {
+            label.querySelector('strong').textContent = 'Data Prevista de Nascimento:';
+        }
+    } else {
+        birthDateInput.required = true;
+        if (label) {
+            label.querySelector('strong').textContent = 'Data de Nascimento:';
+        }
+    }
+}
+
+function calculateBabyAge(birthDate) {
+    if (!birthDate) return null;
+    
+    const birth = new Date(birthDate);
+    const today = new Date();
+    
+    let years = today.getFullYear() - birth.getFullYear();
+    let months = today.getMonth() - birth.getMonth();
+    let days = today.getDate() - birth.getDate();
+    
+    if (days < 0) {
+        months--;
+        const lastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+        days += lastMonth.getDate();
+    }
+    
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+    
+    return { years, months, days };
+}
+
+function formatBabyAge(age) {
+    if (!age) return 'Não disponível';
+    
+    if (age.years > 0) {
+        if (age.months > 0) {
+            return `${age.years} ${age.years === 1 ? 'ano' : 'anos'} e ${age.months} ${age.months === 1 ? 'mês' : 'meses'}`;
+        }
+        return `${age.years} ${age.years === 1 ? 'ano' : 'anos'}`;
+    } else if (age.months > 0) {
+        if (age.days > 0) {
+            return `${age.months} ${age.months === 1 ? 'mês' : 'meses'} e ${age.days} ${age.days === 1 ? 'dia' : 'dias'}`;
+        }
+        return `${age.months} ${age.months === 1 ? 'mês' : 'meses'}`;
+    } else {
+        return `${age.days} ${age.days === 1 ? 'dia' : 'dias'}`;
+    }
+}
+
+function loadBabyProfile() {
+    const profileInfo = document.getElementById('baby-profile-info');
+    if (!profileInfo) return;
+    
+    const babyData = getBabyData();
+    
+    if (!babyData || !babyData.birthDate) {
+        profileInfo.innerHTML = `
+            <div style="text-align: center; padding: 2rem;">
+                <i class="fas fa-baby" style="font-size: 4rem; color: var(--baby-pink); margin-bottom: 1rem;"></i>
+                <h3 style="margin-bottom: 1rem;">Ainda não há dados do bebé</h3>
+                <p style="color: var(--text-light); margin-bottom: 1.5rem;">
+                    Para personalizar a sua experiência e calcular as datas das vacinas, por favor, introduza os dados do seu bebé.
+                </p>
+                <button class="btn btn-primary" onclick="openBabyDataModal()">
+                    <i class="fas fa-plus"></i> Adicionar Dados do Bebé
+                </button>
+            </div>
+        `;
+        return;
+    }
+    
+    const age = calculateBabyAge(babyData.birthDate);
+    const formattedAge = formatBabyAge(age);
+    const birthDateFormatted = new Date(babyData.birthDate).toLocaleDateString('pt-PT', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+    
+    profileInfo.innerHTML = `
+        <div style="padding: 2rem;">
+            <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
+                <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(45deg, var(--baby-pink), var(--baby-blue)); display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">
+                    <i class="fas fa-baby"></i>
+                </div>
+                <div>
+                    <h3 style="margin: 0 0 0.5rem 0; color: var(--text-dark);">${babyData.name}</h3>
+                    <p style="margin: 0; color: var(--text-light);">
+                        ${babyData.isBorn ? 'Nasceu em' : 'Data prevista:'} ${birthDateFormatted}
+                    </p>
+                </div>
+            </div>
+            
+            <div style="background: var(--soft-pink); padding: 1.5rem; border-radius: var(--border-radius); margin-bottom: 1.5rem;">
+                <h4 style="margin: 0 0 0.5rem 0; color: var(--text-dark);">
+                    <i class="fas fa-calendar-alt" style="color: var(--baby-pink); margin-right: 0.5rem;"></i>
+                    Idade
+                </h4>
+                <p style="margin: 0; font-size: 1.2rem; font-weight: 600; color: var(--baby-pink);">
+                    ${formattedAge}
+                </p>
+            </div>
+            
+            <div style="background: var(--soft-blue); padding: 1.5rem; border-radius: var(--border-radius);">
+                <h4 style="margin: 0 0 0.5rem 0; color: var(--text-dark);">
+                    <i class="fas fa-info-circle" style="color: var(--baby-blue); margin-right: 0.5rem;"></i>
+                    Informações
+                </h4>
+                <p style="margin: 0; color: var(--text-light);">
+                    Os dados do bebé são utilizados para calcular automaticamente as datas das vacinas e outras informações personalizadas.
+                </p>
+            </div>
+        </div>
+    `;
 }
 
 // AI Chat Functions
